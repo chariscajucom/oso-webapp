@@ -23,7 +23,12 @@
   },
   "homepage": "https://github.com/chariscajucom/oso-webapp#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^5.0.5"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.7.0"
   }
 }
