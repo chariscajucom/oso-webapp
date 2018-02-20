@@ -11,8 +11,6 @@ import { StudorgsComponent } from './components/studorgs/studorgs.component';
 import { UpdatesComponent } from './components/updates/updates.component';
 import { ServicesComponent } from './components/services/services.component';
 import { RegisterComponent } from './components/register/register.component';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -30,8 +28,6 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
-    // BrowserModule,
-    // BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
