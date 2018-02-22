@@ -6,10 +6,15 @@ import { StudorgsComponent } from './components/studorgs/studorgs.component';
 import { UpdatesComponent } from './components/updates/updates.component';
 import { ServicesComponent } from './components/services/services.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
 { path: '', 
 component: HomeComponent
+ },
+ {
+ 	path: 'login',
+ 	component: LoginComponent
  },
  {
  	path: 'register',

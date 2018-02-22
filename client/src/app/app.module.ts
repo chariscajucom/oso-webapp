@@ -11,6 +11,9 @@ import { StudorgsComponent } from './components/studorgs/studorgs.component';
 import { UpdatesComponent } from './components/updates/updates.component';
 import { ServicesComponent } from './components/services/services.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './myservices/auth.service';
+import { LoginComponent } from './components/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { RegisterComponent } from './components/register/register.component';
     StudorgsComponent,
     UpdatesComponent,
     ServicesComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

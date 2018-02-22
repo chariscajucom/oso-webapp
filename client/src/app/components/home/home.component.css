@@ -12,55 +12,35 @@ body {
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
-/* Carousel base class */
 .carousel {
-  margin-bottom: 4rem;
-}
+  margin-bottom: 0rem;
+  background: -moz-linear-gradient(top, rgba(8,53,112,1) 0%, rgba(8,53,112,1) 1%, rgba(37,69,112,0.98) 54%, rgba(53,81,114,0.98) 71%, rgba(53,81,114,0.98) 76%, rgba(101,119,137,0.97) 99%, rgba(170,182,255,0.97) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#083570', endColorstr='#f7aab6ff',GradientType=0 ); /* IE6-9 */
+ }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
+  
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 36rem;
-  background-color: #777;
+  height: 41rem;
+
 }
 .carousel-item > img {
+  opacity: 0.5;
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 36rem;
+  height: 41rem;
 }
-
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: 400;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
+.team-player .img-fluid {
+  max-width: 50%;
 }
 
 
