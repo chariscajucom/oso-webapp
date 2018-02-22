@@ -9,7 +9,6 @@ import { NavbarModule } from './components/navbar/navbar.module';
 import { SidebarModule } from './admin/sidebar/sidebar.module';
 import { DashNavbarModule } from './admin/shared/navbar/dash-navbar.module';
 import { FooterModule } from './admin/shared/footer/footer.module';
-
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
 
@@ -29,7 +28,7 @@ import { AdminComponent } from './admin/admin.component';
     DashNavbarModule,
     FooterModule
   ],
-  providers: [],
+  providers: [ AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

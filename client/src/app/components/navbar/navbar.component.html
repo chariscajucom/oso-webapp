@@ -1,33 +1,30 @@
 <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="400">
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="100">
         <a class="navbar-brand" routerLink = '/home'>
-            <img src="../assets/osomedia/logo/246.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Office of Student Organizations
+            <img src="../assets/osomedia/logo/246.png" width="55" height="55" class="d-inline-block align-top" alt="">
+            <p class="mt-2 font-weight-bold" style="font-size: 2rem;">Office of Student Organizations</p>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-3">
       <li class="nav-item text-left" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" routerLink="/home">Home</a>
+        <a class="nav-link"  routerLink="/home"><p class="h6">Home</p></a>
       </li>
       <li class="nav-item" [routerLinkActive]= "['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" routerLink="/services">Services</a>
+        <a class="nav-link" routerLink="/services"><p class="h6">Services</p></a>
       </li>
       <li class="nav-item" [routerLinkActive]= "['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" [routerLink]="[menuItems[0].path]"><p>{{menuItems[0].title}}</p></a>
+        <a class="nav-link" routerLink="/about"><p class="h6">About</p></a>
       </li>
       <li class="nav-item" [routerLinkActive]= "['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" routerLink="/studorgs">Student Organizations</a>
+        <a class="nav-link" routerLink="/studorgs"><p class="h6">Student Organizations</p></a>
       </li>
       <li class="nav-item" [routerLinkActive]= "['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" routerLink="/updates">OSO News</a>
+        <a class="nav-link" routerLink="/updates"><p class="h6">OSO News</p></a>
       </li>
     </ul>
   </div>
     </nav>
-
-  
     <!-- End Navbar -->

@@ -14,12 +14,11 @@ body {
 
 .carousel {
   margin-bottom: 0rem;
-  background: rgb(242,46,16); /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(242,46,16,1) 2%, rgba(234,40,3,1) 34%, rgba(232,108,87,1) 51%, rgba(232,108,87,1) 51%, rgba(232,108,87,1) 51%, rgba(232,108,87,1) 55%, rgba(255,102,0,1) 72%, rgba(255,102,0,1) 83%, rgba(199,34,0,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(242,46,16,1) 2%,rgba(234,40,3,1) 34%,rgba(232,108,87,1) 51%,rgba(232,108,87,1) 51%,rgba(232,108,87,1) 51%,rgba(232,108,87,1) 55%,rgba(255,102,0,1) 72%,rgba(255,102,0,1) 83%,rgba(199,34,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(242,46,16,1) 2%,rgba(234,40,3,1) 34%,rgba(232,108,87,1) 51%,rgba(232,108,87,1) 51%,rgba(232,108,87,1) 51%,rgba(232,108,87,1) 55%,rgba(255,102,0,1) 72%,rgba(255,102,0,1) 83%,rgba(199,34,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f22e10', endColorstr='#c72200',GradientType=0 ); /* IE6-9 */
-}
+  background: -moz-linear-gradient(top, rgba(8,53,112,1) 0%, rgba(8,53,112,1) 1%, rgba(37,69,112,0.98) 54%, rgba(53,81,114,0.98) 71%, rgba(53,81,114,0.98) 76%, rgba(101,119,137,0.97) 99%, rgba(170,182,255,0.97) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#083570', endColorstr='#f7aab6ff',GradientType=0 ); /* IE6-9 */
+ }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
@@ -29,7 +28,7 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 40rem;
+  height: 41rem;
 
 }
 .carousel-item > img {
@@ -38,9 +37,11 @@ body {
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 40rem;
+  height: 41rem;
 }
-
+.team-player .img-fluid {
+  max-width: 50%;
+}
 
 
 /* RESPONSIVE CSS

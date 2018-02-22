@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
+import { RouterModule, Routes } from '@angular/router';
+
 
 export const AppRoutes: Routes = [
     {
