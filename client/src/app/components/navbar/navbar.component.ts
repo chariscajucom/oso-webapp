@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ROUTES } from './navbar.routing';
+
+declare var $: any;
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+	moduleId: module.id,
+  	selector: 'app-navbar',
+  	templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+	public menuItems: any[];
 
   ngOnInit() {
+  	this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
 
 }
