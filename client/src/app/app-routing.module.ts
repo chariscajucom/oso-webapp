@@ -1,42 +1,30 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { StudorgsComponent } from './components/studorgs/studorgs.component';
-import { UpdatesComponent } from './components/updates/updates.component';
-import { ServicesComponent } from './components/services/services.component';
-import { RegisterComponent } from './components/register/register.component';
+import { Routes } from '@angular/router';
 
-const appRoutes: Routes = [
-{ path: '', 
-component: HomeComponent
- },
- {
- 	path: 'register',
- 	component: RegisterComponent
- },
- { path: 'about', 
-	component: AboutComponent
- },
- { path: 'studorgs', 
-	component: StudorgsComponent
- },
- { path: 'updates', 
-	component: UpdatesComponent
- },
- { path: 'services', 
-component: ServicesComponent
- },
-{ path: '**',
- 	component: HomeComponent
+import { FrontComponent } from './components/front.component';
+import { AdminComponent } from './admin/admin.component';
 
-}];
-
-@NgModule({
-  declarations: [],
-  imports: [RouterModule.forRoot(appRoutes)],
-  providers: [],
-  bootstrap: [],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRoutes: Routes = [
+    {
+      path: '',
+      redirectTo: 'home',
+      pathMatch: 'full',
+    },
+    {
+      path: 'dashboard',
+      component: AdminComponent,
+      children: [
+      // { path: '', loadChildren: './dashboard/dashboard#DashboardModule'}
+      ]
+    },
+    {
+      path: '',
+      component: FrontComponent,
+      children: [
+      { path: 'home', loadChildren: './components/home/home.module#HomeModule' },
+      { path: 'about', loadChildren: './components/about/about.module#AboutModule' },
+      { path: 'services', loadChildren: './components/services/services.module#ServicesModule' },
+      { path: 'studorgs', loadChildren: './components/studorgs/studorgs.module#StudorgsModule' },
+      { path: 'updates', loadChildren: './components/updates/updates.module#UpdatesModule' },
+      ]
+    }
+];
