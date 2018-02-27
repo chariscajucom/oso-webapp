@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from '../../myservices/auth.service';
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -21,11 +21,17 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  user;
   menuItems: any[];
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authService.getProfile().subscribe(data => {
+      this.user = data.user;
+    })
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
   isMobileMenu() {
@@ -35,4 +41,3 @@ export class SidebarComponent implements OnInit {
       return true;
   };
 }
-

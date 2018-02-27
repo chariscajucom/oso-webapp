@@ -1,4 +1,3 @@
-import { Routes } from '@angular/router';
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,6 +25,8 @@ export const AppRoutes: Routes = [
       { path: 'services', loadChildren: './components/services/services.module#ServicesModule' },
       { path: 'studorgs', loadChildren: './components/studorgs/studorgs.module#StudorgsModule' },
       { path: 'updates', loadChildren: './components/updates/updates.module#UpdatesModule' },
+      { path: 'login', loadChildren: './components/login/login.module#LoginModule' },
+      { path: 'register', loadChildren: './components/register/register.module#RegisterModule' }
       ]
     }
 ];
