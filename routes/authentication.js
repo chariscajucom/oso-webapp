@@ -78,7 +78,7 @@ module.exports = (router) => {
             res.json({ success: true, message: 'Email is available.'});
            }
         }
-      }); 
+      });
     }
   });
 
@@ -96,7 +96,7 @@ module.exports = (router) => {
             res.json({ success: true, message: 'Username is available.'});
            }
         }
-      }); 
+      });
     }
   });
 
@@ -129,7 +129,25 @@ module.exports = (router) => {
     }
    })
 
+   router.use((req, res, next) => {
+     const token = req.headers['authorization'];
+     if (!token) {
+       res.json({ success: false, message: 'No token provided!'});
+     } else {
+       jwt.verify(token, config.secret, (err, decoded) => {
+         if (err) {
+           res.json({ success: false, message: 'Token invalid: ' + err});
+         } else {
+           req.decoded = decoded;
+           next();
+         }
+       });
+     }
+   });
 
+   router.get('/sidebar', (req, res) => {
+    res.send(req.decoded);
+   });
 
 	return router;
 }

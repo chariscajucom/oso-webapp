@@ -13,6 +13,7 @@ import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthService } from '././myservices/auth.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
