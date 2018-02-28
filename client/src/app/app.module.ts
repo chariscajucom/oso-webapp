@@ -11,7 +11,8 @@ import { DashNavbarModule } from './admin/shared/navbar/dash-navbar.module';
 import { FooterModule } from './admin/shared/footer/footer.module';
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthService } from './myservices/auth.service';
+import { AuthService } from '././myservices/auth.service';
+
 
 @NgModule({
   declarations: [
