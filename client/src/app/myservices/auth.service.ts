@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthService {
 
-domain = "http://localhost:8080";
+domain = "http://localhost:8080/";
 authToken;
 user;
 options;
@@ -25,36 +25,41 @@ options;
   }
 
   loadToken(){
-    const token = localStorage.getItem('token');
-    this.authToken = token;
+      this.authToken = localStorage.getItem('token');
   }
 
   registerUser(user){
-  	return this.http.post(this.domain + '/authentication/register', user).map(res => res.json());
+  	return this.http.post(this.domain + 'authentication/register', user).map(res => res.json());
   }
 
   checkUsername(username){
-  	return this.http.get(this.domain + '/authentication/checkUsername/' + username).map(res => res.json());
+  	return this.http.get(this.domain + 'authentication/checkUsername/' + username).map(res => res.json());
   }
 
   checkEmail(email){
-  	return this.http.get(this.domain + '/authentication/checkEmail/' + email).map(res => res.json());
+  	return this.http.get(this.domain + 'authentication/checkEmail/' + email).map(res => res.json());
   }
 
   login(user) {
-    return this.http.post(this.domain + '/authentication/login', user).map(res => res.json());
+    return this.http.post(this.domain + 'authentication/login', user).map(res => res.json());
+  }
+
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
   }
 
   storeUserData(token, user){
     localStorage.setItem('token', token);
-    localStorage.setItem('username', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
   }
 
   getProfile(){
     this.createAuthenticationHeaders();
-    return this.http.get(this.domain + '/authentication/sidebar', this.options).map(res => res.json());
+    return this.http.get(this.domain + 'authentication/sidebar', this.options).map(res => res.json());
   }
 
 }

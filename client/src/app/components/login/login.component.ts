@@ -58,13 +58,15 @@ export class LoginComponent implements OnInit {
 			} else{
 					this.messageClass = 'alert alert-success';
 					this.message = data.message;
+          //expecting the token and the user
+          this.authService.storeUserData(data.token, data.user);
 					setTimeout(() => {
-						this.router.navigate(['/dashboard']);
+						this.router.navigate(['/admin/dashboard']);
 					}, 2000)
 
 			}
 		});
-		
+
 
 	}
   ngOnInit() {

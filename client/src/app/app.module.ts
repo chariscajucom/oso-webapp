@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutes } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router'
 import { NavbarModule } from './components/navbar/navbar.module';
@@ -12,6 +12,7 @@ import { FooterModule } from './admin/shared/footer/footer.module';
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthService } from '././myservices/auth.service';
+import { BlogService } from '././myservices/blog.service';
 
 
 @NgModule({
@@ -21,8 +22,9 @@ import { AuthService } from '././myservices/auth.service';
     AdminComponent
   ],
   imports: [
-    RouterModule.forRoot(AppRoutes), 
+    RouterModule.forRoot(AppRoutes),
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpModule,
     NavbarModule,
@@ -30,7 +32,7 @@ import { AuthService } from '././myservices/auth.service';
     DashNavbarModule,
     FooterModule
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, BlogService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
