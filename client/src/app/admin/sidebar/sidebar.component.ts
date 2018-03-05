@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTES } from './sidebar-routes.config';
+import { AuthService } from '../../myservices/auth.service';
 
 declare const $: any;
 
@@ -8,11 +9,17 @@ declare const $: any;
   templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent implements OnInit {
+  user;
   menuItems: any[];
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authService.getProfile().subscribe(data => {
+      this.user = data.user;
+    })
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
   isMobileMenu() {
@@ -22,4 +29,3 @@ export class SidebarComponent implements OnInit {
       return true;
   };
 }
-
