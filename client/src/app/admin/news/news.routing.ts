@@ -6,13 +6,14 @@ import { NewsComponent } from './news.component';
 export const NewsRoutes: Routes = [
     {
       path: '',
-      children:
-      [
-        {
-          path: '',
-          component: NewsComponent
-        },
-        { path: 'edit/:id', component: EditNewsComponent }
-      ]
+      children: [ {
+        path: '',
+        component: NewsComponent
+    },
+    {
+      path: 'edit',
+      component: EditNewsComponent
     }
+    ]
+}
 ];
