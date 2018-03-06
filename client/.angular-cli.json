@@ -20,8 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/fullcalendar/dist/fullcalendar.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
@@ -29,7 +28,8 @@
         "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/moment/moment.js",
-        "../node_modules/fullcalendar/dist/fullcalendar.js"
+        "../node_modules/fullcalendar/dist/fullcalendar.js",
+        "../src/assets/js/plugins/sweetalert2.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
