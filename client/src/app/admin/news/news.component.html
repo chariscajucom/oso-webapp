@@ -1,3 +1,97 @@
-<h1>News Works!</h1>
-<router-outlet></router-outlet>
-<a [routerLink]="['edit']">click me!</a>
+<div class="container">
+  <h1>Blog Feed</h1>
+  <div class="row show-hide-message" *ngIf="message && newPost">
+    <div [ngClass]="messageClass">
+      {{ message }}
+    </div>
+  </div>
+  <button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="newBlogForm()"><i class="now-ui-icons ui-1_simple-add"></i>&nbsp;&nbsp;New Post</button>
+  <button [disabled]="loadingBlogs" type="button" name="button" class="btn btn-default" *ngIf="!newPost" (click)="reloadBlogs()"><i class="now-ui-icons loader_refresh"></i>&nbsp;&nbsp;Reload</button>
+<!-- Create new blog post -->
+<!-- New title -->
+      <form [formGroup]="form" name="blogForm" (submit)="onBlogSubmit()" *ngIf="newPost">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <div [ngClass]="{'has-success': form.controls.title.valid, 'has-error': form.controls.title.dirty && form.controls.title.errors }">
+            <input type="text" name="title" class="form-control" placeholder="Blog Title" autocomplete="off" formControlName="title"/>
+            <ul class="form-text">
+              <li *ngIf="form.controls.title.dirty && form.controls.title.errors?.required">This field is required.</li>
+              <li *ngIf="(form.controls.title.dirty && form.controls.title.errors?.minlength) || (form.controls.title.dirty && form.controls.title.errors?.maxlength)">Max Length: 50, Min: 5</li>
+              <li *ngIf="form.controls.title.dirty && form.controls.title.errors?.alphaNumericValidator">Must be alphanumeric.</li>
+            </ul>
+          </div>
+        </div>
+
+  <!-- New title -->
+  <!-- New Body -->
+    <div class="form-group">
+      <label for="body">Body</label>
+      <div [ngClass]="{'has-success': form.controls.body.valid, 'has-error': form.controls.body.dirty && form.controls.body.errors }">
+        <textarea name="body" rows="8" cols="80" placeholder="Body" class="form-control" formControlName="body"></textarea>
+        <ul class="form-text">
+          <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.required">This field is required.</li>
+          <li *ngIf="(form.controls.body.dirty && form.controls.body.errors?.minlength) || (form.controls.body.dirty && form.controls.body.errors?.maxlength)">Max Length: 500, Min: 15</li>
+        </ul>
+      </div>
+    </div>
+  <!-- New Body -->
+  <button [disabled]="processing" type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+  <button [disabled]="processing || !form.valid" type="submit" name="button" class="btn btn-success">Submit</button>
+<!-- Create new blog post -->
+  </form>
+  <div *ngIf="!newPost" >
+    <div class="card bg-light border-dark">
+    <div class="card-body">
+      <h5 class="card-title">Blog title</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <!-- footer start -->
+    <div class="card-footer text-muted">
+      <strong>Posted by: </strong>Charis Cajucom&nbsp;&nbsp;
+      <strong>Date: </strong>March 1, 2018
+      <div>
+        <p><strong>Likes: </strong>24&nbsp;&nbsp;
+        <strong>Dislikes: </strong>9</p>
+      </div>
+      <div class="btn-group" role="group">
+        <a class="btn btn-primary mx-1 rounded" href="#" role="button">Edit</a>
+        <a class="btn btn-danger mx-1 rounded" href="#" role="button">Delete</a>
+          <!-- Likes Dropdown -->
+        <div class="dropdown dropup">
+          <button class="btn btn-success mx-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Likes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+        <!-- Dislikes Dropdown -->
+        <div class="dropdown dropup">
+          <button class="btn btn-warning mx-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dislikes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer end -->
+    <ul class="list-group">
+      <li class="list-group-item">
+        <button class="btn btn-outline-secondary" name="button" type="button" (click)="draftComment()">Post Comment</button>
+        <br>
+        <!-- <form>
+          <textarea name="comment" rows="10" cols="30"></textarea>
+          <button type="button" name="button" class="btn btn-info"></button>
+          <button type="button" name="button" class="btn btn-danger"></button>
+        </form> -->
+      </li>
+    </ul>
+  </div>
+  </div>
+</div>

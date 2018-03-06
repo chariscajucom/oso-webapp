@@ -23,8 +23,8 @@ constructor(
 	private formBuilder: FormBuilder,
 	private authService: AuthService,
 	private router: Router
-	) 
-	{ 
+	)
+	{
 		this.createForm();
 	}
 
@@ -126,8 +126,8 @@ constructor(
 				}, 2000)
 		}
 		});
-		
-		  
+
+
 	}
 
 	checkEmail(){

@@ -119,8 +119,8 @@ module.exports = (router) => {
               if (!validPassword) {
                 res.json({ success: false, message: 'INVALID Password!'})
               } else{
-                const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' });
-                res.json({ success: true, message: 'Success!', token: token, user:  {username: user.username }});
+                const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); //token
+                res.json({ success: true, message: 'Success!', token: token, user:  { username: user.username }});
               }
             }
           }
@@ -144,10 +144,24 @@ module.exports = (router) => {
        });
      }
    });
-
+   // route to get user's data
    router.get('/sidebar', (req, res) => {
-    res.send(req.decoded);
-   });
+       // Search for user in database
+       User.findOne({ _id: req.decoded.userId }).select('username').exec((err, user) => {
+         // Check if error connecting
+         if (err) {
+           res.json({ success: false, message: err }); // Return error
+         } else {
+           // Check if user was found in database
+           if (!user) {
+             res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
+           } else {
+             res.json({ success: true, user: user }); // Return success, send user object to frontend for profile
+           }
+         }
+       });
+     });
+
 
 	return router;
 }

@@ -27,7 +27,7 @@ if (!email) {
 
 const emailvalidators = [
 {
-  validator: emaillengthchecker, 
+  validator: emaillengthchecker,
   message: "Email must be more than 5 characters or less than 30."
 },
 {
@@ -66,7 +66,7 @@ const usernameValidators = [
     validator: validUsernameChecker,
     message: "USERNAME is not valid. Characters and Numbers only."
   }
-]
+];
 
 let passwordLengthChecker = (password) => {
   if (!password) {
@@ -95,27 +95,27 @@ const passwordValidators = [{
 }, {
   validator: validPasswordChecker,
   message: "PASSWORD must contain atleast one number, lowercase, uppercase and characters."
-}]
+}];
 
 const userSchema = new Schema({
     email: { type: String, required: true, unique: true, lowercase: true, validate: emailvalidators },
     username: { type: String, required: true, unique: true, lowercase: true, validate: usernameValidators },
     password: { type: String, required: true, validate: passwordValidators}
-    
+
   });
 
 //middleware for the schema for encrypting password
 userSchema.pre('save', function(next){
-  if (!this.isModified('password')) 
+  if (!this.isModified('password'))
     return next();
-  
+
     bcrypt.hash(this.password, null, null, (err, hash) => {
-      if (err) return next(err); 
-      this.password = hash; 
+      if (err) return next(err);
+      this.password = hash;
       next();
     });
   });
-  
+
   userSchema.methods.comparePassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   }
