@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { UpdatesComponent } from './updates.component';
-import { UpdatesRoutes } from './updatest.routing';
+import { UpdatesRoutes } from './updates.routing';
 
 @NgModule({
     imports: [

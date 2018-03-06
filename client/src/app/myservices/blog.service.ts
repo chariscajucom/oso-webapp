@@ -5,9 +5,9 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class BlogService {
-
   options;
   domain = this.authService.domain;
+
   constructor(
     private authService: AuthService,
     private http: Http
@@ -28,5 +28,11 @@ export class BlogService {
     this.createAuthenticationHeaders();
     return this.http.post(this.domain + 'blogs/newBlog', blog, this.options).map(res => res.json());
   }
+
+  getAllBlogs(){
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'blogs/allBlogs', this.options).map(res => res.json());
+  }
+
 
 }

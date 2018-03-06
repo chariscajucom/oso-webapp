@@ -14,7 +14,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthService } from '././myservices/auth.service';
 import { BlogService } from '././myservices/blog.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +30,7 @@ import { BlogService } from '././myservices/blog.service';
     SidebarModule,
     DashNavbarModule,
     FooterModule
+
   ],
   providers: [ AuthService, BlogService ],
   bootstrap: [AppComponent]

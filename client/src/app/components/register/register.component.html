@@ -1,10 +1,13 @@
 <div class="pricing-header px-5 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <img src="../assets/osomedia/logo/124.png"  class="d-inline-block align-top" alt="">
    <h1 class="display-4">Register</h1>
    <p class="lead">For OSO Staff eyes only! The url is not in any button on the public website.</p>
 </div>
 
 
-<div class="container">
+<div class="gradient-bg w-50 h-100 p-3 mx-auto">
+
+<div class="container w-50 p-3">
 <div class="row mr-auto show-hide-message">
   <div [ngClass]="messageClass">
     {{ message }}
@@ -59,6 +62,7 @@
   </div>
   <input [disabled]="!form.valid || processing || !emailValid || !usernameValid" type="submit" class="btn btn-primary" value="Submit">
 </form>﻿
+</div>
 </div>
 <!--
   Username:<p> {{form.controls.username.value}}</p>

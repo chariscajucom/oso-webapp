@@ -128,7 +128,7 @@ module.exports = (router) => {
       }
     }
    })
-
+   //
    router.use((req, res, next) => {
      const token = req.headers['authorization'];
      if (!token) {
@@ -144,6 +144,8 @@ module.exports = (router) => {
        });
      }
    });
+
+
    // route to get user's data
    router.get('/sidebar', (req, res) => {
        // Search for user in database

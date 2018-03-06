@@ -6,7 +6,9 @@ declare var $: any;
 @Component({
 	moduleId: module.id,
   	selector: 'app-navbar',
-  	templateUrl: './navbar.component.html'
+  	templateUrl: './navbar.component.html',
+		styleUrls: ['../../../assets/css/now-ui-kit.css']
+
 })
 export class NavbarComponent implements OnInit {
 	public menuItems: any[];

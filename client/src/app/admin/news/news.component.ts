@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../myservices/auth.service';
 import { BlogService } from '../../myservices/blog.service';
+
 @Component({
   selector: 'admin-news',
   templateUrl: './news.component.html'
@@ -14,6 +15,7 @@ export class NewsComponent implements OnInit {
   form: FormGroup;
   processing = false;
   username;
+  blogPosts;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,7 +68,7 @@ export class NewsComponent implements OnInit {
 
   reloadBlogs(){
     this.loadingBlogs = true;
-    //Get all blogs
+    this.getAllBlogs();
     setTimeout(() => {
     this.loadingBlogs = false;
   }, 4000);
@@ -96,6 +98,7 @@ export class NewsComponent implements OnInit {
       } else{
         this.messageClass = 'alert alert-success';
         this.message = data.message;
+        this.getAllBlogs();
         setTimeout(() => {
           this.newPost = false;
           this.processing = false;
@@ -111,10 +114,17 @@ export class NewsComponent implements OnInit {
     window.location.reload();
   }
 
+  getAllBlogs(){
+    this.blogService.getAllBlogs().subscribe(data =>{
+      this.blogPosts = data.blogs;
+    });
+  }
+
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
-    })
+    });
+    this.getAllBlogs();
   }
 
 }

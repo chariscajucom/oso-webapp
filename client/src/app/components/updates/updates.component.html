@@ -1,3 +1,77 @@
-<p>
-  updates works!
-</p>
+<div class="wrapper mb-5">
+     <div class="page-header page-header-small">
+            <div class="page-header-image" style="background-image: url('../assets/img/bg6.jpg');">
+            </div>
+            <div class="container">
+                <div class="content-center">
+                    <h1 class="title">OSO Updates</h1>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="container">
+  <div class="card bg-light border-dark" *ngFor="let blog of blogPosts">
+  <div class="card-body">
+    <!-- blog title -->
+    <h5 class="card-title">{{ blog.title }}</h5>
+    <!-- blog body -->
+    <p class="card-text">{{ blog.body }}</p>
+  </div>
+  <!-- blog footer start -->
+  <div class="card-footer text-muted">
+    <!-- blog author -->
+    <!-- <strong>Posted by: </strong>{{ blog.createdBy }}&nbsp;&nbsp; -->
+    <!-- blog created -->
+    <strong>Date: </strong>{{ blog.createdAt | date: 'MMM dd, yyyy' }}
+    <!-- Like and Dislike Button -->
+    <!-- <div>
+      <p><strong>Likes: </strong>{{ blog.likes }}&nbsp;&nbsp;
+      <strong>Dislikes: </strong>{{ blog.dislikes }}</p>
+    </div> -->
+
+    <!-- Like and Dislike Button -->
+    <div class="btn-group" role="group">
+      <!-- Edit Button -->
+      <!-- <a [routerLink]="['edit/', blog._id ]" *ngIf="username === blog.createdBy" class="btn btn-primary mx-1 rounded">Edit</a> -->
+
+      <!-- Delete Button -->
+      <!-- <a [routerLink]="['delete-news/', blog._id ]" *ngIf="username === blog.createdBy" class="btn btn-danger mx-1 rounded" role="button">Delete</a> -->
+
+        <!-- Likes Dropdown -->
+        <div class="dropdown dropup">
+        <button class="btn btn-success mx-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Likes: 8
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+      <!-- Dislikes Dropdown -->
+      <div class="dropdown dropup">
+        <button class="btn btn-warning mx-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dislikes
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+  <!-- footer end -->
+  <!-- <ul class="list-group">
+    <li class="list-group-item">
+      <button class="btn btn-outline-secondary" name="button" type="button" (click)="draftComment()">Post Comment</button>
+      <br> -->
+      <!-- <form>
+        <textarea name="comment" rows="10" cols="30"></textarea>
+        <button type="button" name="button" class="btn btn-info"></button>
+        <button type="button" name="button" class="btn btn-danger"></button>
+      </form> -->
+    <!-- </li>
+  </ul> -->
+</div>
+</div>

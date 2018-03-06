@@ -1,7 +1,7 @@
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
-
+// import { EditNewsComponent } from './admin/news/edit-news/edit-news.component'
 
 export const AppRoutes: Routes = [
     {
@@ -15,12 +15,16 @@ export const AppRoutes: Routes = [
       children: [
         { path: '', loadChildren: './admin/dashboard/dashboard.module#DashboardModule'},
         { path: 'dashboard', loadChildren: './admin/dashboard/dashboard.module#DashboardModule'},
-        { path: 'news', loadChildren: './admin/news/news.module#NewsModule'},
+        { path: 'news', loadChildren: './admin/news/news.module#NewsModule'
+      },
         { path: 'announcement', loadChildren: './admin/announcement/announcement.module#AnnouncementModule'},
         { path: 'activities', loadChildren: './admin/activities/activities.module#ActivitiesModule'},
         { path: 'pdf-forms', loadChildren: './admin/pdf-forms/pdforms.module#PDFModule'},
       ]
     },
+    // {
+    //   path: 'edit-news/:id', component: EditNewsComponent
+    // },
     {
       path: '',
       component: FrontComponent,

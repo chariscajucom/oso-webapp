@@ -14,36 +14,43 @@ body {
 
 .carousel {
   margin-bottom: 0rem;
-  background: -moz-linear-gradient(top, rgba(8,53,112,1) 0%, rgba(8,53,112,1) 1%, rgba(37,69,112,0.98) 54%, rgba(53,81,114,0.98) 71%, rgba(53,81,114,0.98) 76%, rgba(101,119,137,0.97) 99%, rgba(170,182,255,0.97) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#083570', endColorstr='#f7aab6ff',GradientType=0 ); /* IE6-9 */
+  background: rgba(44, 44, 44, 0.2);
  }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
-  
+
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 41rem;
-
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  /* Standard syntax */
 }
 .carousel-item > img {
-  opacity: 0.5;
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 41rem;
+  height: auto;
+  max-width: none;
+  background: rgba(44, 44, 44, 0.2);
+  opacity: 0.6;
 }
-.team-player .img-fluid {
-  max-width: 50%;
+.team-player img {
+  width: 10rem;
+  border: 
 }
-
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -53,15 +60,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#083570', end
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
   }
 }
