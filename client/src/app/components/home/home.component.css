@@ -46,11 +46,12 @@ body {
   max-width: none;
   background: rgba(44, 44, 44, 0.2);
   opacity: 0.6;
+  filter:contrast(150%);
 }
 .team-player img {
   width: 10rem;
-  border: 
 }
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -61,4 +62,5 @@ body {
     font-size: 1.25rem;
     line-height: 1.4;
   }
+
 }
