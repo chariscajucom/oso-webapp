@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { AuthService } from '../../myservices/auth.service';
+import { AuthService } from '../myservices/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['../../../assets/css/now-ui-kit.css', './login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
@@ -70,6 +69,9 @@ export class LoginComponent implements OnInit {
 
 	}
   ngOnInit() {
+	if (this.authService.loggedIn) {
+		this.router.navigate(['/admin/dashboard']);
+	 }
   }
 
 }

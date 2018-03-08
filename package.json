@@ -2,7 +2,7 @@
   "name": "oso-webapp",
   "version": "1.0.0",
   "description": "MEAN Stack OSO web app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node index.js"
   },

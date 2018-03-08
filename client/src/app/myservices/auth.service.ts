@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -40,8 +41,12 @@ options;
   	return this.http.get(this.domain + 'authentication/checkEmail/' + email).map(res => res.json());
   }
 
-  login(user) {
+  login(user) { 
     return this.http.post(this.domain + 'authentication/login', user).map(res => res.json());
+  }
+
+  loggedIn(){
+    return tokenNotExpired();
   }
 
   logout(){

@@ -12,14 +12,20 @@ import { FooterModule } from './admin/shared/footer/footer.module';
 
 import { FrontComponent } from './components/front.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+
 import { AuthService } from '././myservices/auth.service';
 import { BlogService } from '././myservices/blog.service';
+import { AuthGuard } from './guard/auth-guard.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrontComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),
@@ -33,7 +39,7 @@ import { BlogService } from '././myservices/blog.service';
     FooterModule
 
   ],
-  providers: [ AuthService, BlogService ],
+  providers: [ AuthService, BlogService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
