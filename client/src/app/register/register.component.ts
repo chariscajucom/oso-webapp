@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../myservices/auth.service';
+import { AuthService } from '../myservices/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
 
@@ -122,7 +121,7 @@ constructor(
 				this.messageClass = 'alert alert-success';
 				this.message = data.message;
 				setTimeout(() => {
-					this.router.navigate(['/login']);
+					this.router.navigate(['login']);
 				}, 2000)
 		}
 		});
