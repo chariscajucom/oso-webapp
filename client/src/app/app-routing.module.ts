@@ -39,11 +39,6 @@ export const AppRoutes: Routes = [
       { path: 'studorgs', loadChildren: './components/studorgs/studorgs.module#StudorgsModule' },
       { path: 'updates', loadChildren: './components/updates/updates.module#UpdatesModule' }
       ]
-<<<<<<< HEAD
-    }
-];
-=======
     },
     { path: '**' , redirectTo : '' }
 ];
->>>>>>> b14ff3e8b19c3d0a911368b7b81e79341d523dd0

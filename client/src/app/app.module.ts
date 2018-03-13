@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthService } from '././myservices/auth.service';
 import { BlogService } from '././myservices/blog.service';
+import { StudentsService } from '././myservices/students.service';
 import { AuthGuard } from './guard/auth-guard.service';
 import { RegisterComponent } from './register/register.component';
 
@@ -39,7 +40,7 @@ import { RegisterComponent } from './register/register.component';
     FooterModule
 
   ],
-  providers: [ AuthService, BlogService, AuthGuard],
+  providers: [ AuthService, BlogService, StudentsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
