@@ -119,7 +119,7 @@ module.exports = (router) => {
               if (!validPassword) {
                 res.json({ success: false, message: 'INVALID Password!'})
               } else{
-                const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); //token
+                const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); //created token
                 res.json({ success: true, message: 'Success!', token: token, user:  { username: user.username }});
               }
             }
@@ -127,25 +127,28 @@ module.exports = (router) => {
         })
       }
     }
-   })
+   });
+
+   /* ================================================
+  MIDDLEWARE - Used to grab user's token from headers
+  ================================================ */
+
+   router.use((req, res, next) => {
+     const token = req.headers['authorization'];
+     if (!token) {
+       res.json({ success: false, message: 'No token provided!'});
+     } else {
+       jwt.verify(token, config.secret, (err, decoded) => {
+         if (err) {
+           res.json({ success: false, message: 'Token invalid: ' + err});
+         } else {
+           req.decoded = decoded;
+           next();
+         }
+       });
+     }
+   });
    
-  //  router.use((req, res, next) => {
-  //    const token = req.headers['authorization'];
-  //    if (!token) {
-  //      res.json({ success: false, message: 'No token provided!'});
-  //    } else {
-  //      jwt.verify(token, config.secret, (err, decoded) => {
-  //        if (err) {
-  //          res.json({ success: false, message: 'Token invalid: ' + err});
-  //        } else {
-  //          req.decoded = decoded;
-  //          next();
-  //        }
-  //      });
-  //    }
-  //  });
-
-
    // route to get user's data
    router.get('/sidebar', (req, res) => {
        // Search for user in database

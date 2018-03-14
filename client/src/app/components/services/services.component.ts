@@ -76,7 +76,6 @@ export class ServicesComponent implements OnInit {
       studname: this.form.get('studname').value
     }
    this.studService.validation(student).subscribe(data => {
-     console.log(data);
      if(!data.success){
         this.messageClass ='alert alert-danger';
 				this.message = data.message;
@@ -84,6 +83,7 @@ export class ServicesComponent implements OnInit {
      } else{
       this.messageClass = 'alert alert-success';
       this.message = data.message;
+      // this.studService.storeStudentsData(data.token, data.student);
       this.validStudent = false;
       this.validated = true;
 

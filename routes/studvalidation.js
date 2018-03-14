@@ -1,5 +1,4 @@
 const Student = require('../models/students');
-const config = require('../config/database');
 
 module.exports = (router) => {
 
@@ -24,7 +23,7 @@ router.post('/studentvalid', (req, res) => {
                         if(!student){
                             res.json({ success: false, message: "Student Name not found."});
                         } else{
-                            res.json({ success: true, message: 'Successfully validated!' });
+                            res.json({ success: true, message: 'Successfully validated!'});
                         }
                     }
                  });
@@ -34,5 +33,6 @@ router.post('/studentvalid', (req, res) => {
        }
     }
 });
+
     return router;
 }

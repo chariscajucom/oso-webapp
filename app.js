@@ -4,8 +4,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const path = require('path');
-const authentication = require('./routes/authentication')(router);
-const studvalidation = require('./routes/studvalidation')(router);
 const blogs = require('./routes/blog')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -27,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //req.body middleware
 app.use(express.static(__dirname + '/public'));
 
+app.use('/studvalidation', studvalidation);
 app.use('/authentication', authentication);
 app.use('/blogs', blogs);
 app.use('/studvalidation', studvalidation);

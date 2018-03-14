@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -8,9 +8,9 @@ export class StudentsService {
     constructor(
         private http: Http
         ) {}
-
+        
 validation(student) { 
-   return this.http.post(this.domain + 'studvalidation/studentvalid', student).map(res => res.json());
-}
-    
+    return this.http.post(this.domain + 'studvalidation/studentvalid', student).map(res => res.json());
+    }  
+
 }
