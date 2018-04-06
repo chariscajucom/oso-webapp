@@ -1,7 +1,0 @@
-.gradient-bg{
-  background: -moz-linear-gradient(top, rgba(8,53,112,1) 0%, rgba(8,53,112,1) 1%, rgba(37,69,112,0.98) 54%, rgba(53,81,114,0.98) 71%, rgba(53,81,114,0.98) 76%, rgba(101,119,137,0.97) 99%, rgba(170,182,255,0.97) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(8,53,112,1) 0%,rgba(8,53,112,1) 1%,rgba(37,69,112,0.98) 54%,rgba(53,81,114,0.98) 71%,rgba(53,81,114,0.98) 76%,rgba(101,119,137,0.97) 99%,rgba(170,182,255,0.97) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#083570', endColorstr='#f7aab6ff',GradientType=0 ); /* IE6-9 */
-
-}

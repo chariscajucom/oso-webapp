@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../myservices/auth.service';
-import { BlogService } from '../../myservices/blog.service';
+import { NewsService } from '../../myservices/news.service';
 
 @Component({
   selector: 'admin-news',
@@ -11,22 +11,22 @@ export class NewsComponent implements OnInit {
   message;
   messageClass;
   newPost = false;
-  loadingBlogs = false;
+  loadingNews = false;
   form: FormGroup;
   processing = false;
   username;
-  blogPosts;
+  newsArticles;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private blogService: BlogService
+    private newsService: NewsService
   )
   {
-    this.createNewBlogForm();
+    this.createNewsPost();
   }
 
-  createNewBlogForm(){
+  createNewsPost(){
     this.form = this.formBuilder.group({
       title: ['', Validators.compose([
         Validators.required,
@@ -42,13 +42,12 @@ export class NewsComponent implements OnInit {
     })
   }
 
-  enableFormNewBlogForm(){
+  enableFormNewsForm(){
     this.form.get('title').enable();
     this.form.get('body').enable();
-
   }
 
-  disableFormNewBlogForm(){
+  disableFormNewsForm(){
     this.form.get('title').disable();
     this.form.get('body').disable();
   }
@@ -62,15 +61,15 @@ export class NewsComponent implements OnInit {
 		}
 	}
 
-  newBlogForm(){
+  createNewsForm(){
     this.newPost = true;
   }
 
-  reloadBlogs(){
-    this.loadingBlogs = true;
-    this.getAllBlogs();
+  reloadNews(){
+    this.loadingNews = true;
+    this.getAllNews();
     setTimeout(() => {
-    this.loadingBlogs = false;
+    this.loadingNews = false;
   }, 4000);
   }
 
@@ -78,33 +77,33 @@ export class NewsComponent implements OnInit {
 
   }
 
-  onBlogSubmit(){
+  onNewsSubmit(){
     // console.log('form submitted');
     this.processing = true;
-    this.disableFormNewBlogForm();
+    this.disableFormNewsForm();
 
-    const blog = {
+    const news = {
       title: this.form.get('title').value,
       body: this.form.get('body').value,
       createdBy: this.username
     }
 
-    this.blogService.newBlog(blog).subscribe(data=>{
+    this.newsService.createNews(news).subscribe(data=>{
       if(!data.success){
         this.messageClass = 'alert alert-danger';
         this.message = data.message;
         this.processing = false;
-        this.enableFormNewBlogForm();
+        this.enableFormNewsForm();
       } else{
         this.messageClass = 'alert alert-success';
         this.message = data.message;
-        this.getAllBlogs();
+        this.getAllNews();
         setTimeout(() => {
           this.newPost = false;
           this.processing = false;
           this.message = false;
           this.form.reset();
-          this.enableFormNewBlogForm();
+          this.enableFormNewsForm();
         }, 2000);
       }
     });
@@ -114,9 +113,9 @@ export class NewsComponent implements OnInit {
     window.location.reload();
   }
 
-  getAllBlogs(){
-    this.blogService.getAllBlogs().subscribe(data =>{
-      this.blogPosts = data.blogs;
+  getAllNews(){  
+    this.newsService.getAllNews().subscribe(data =>{
+      this.newsArticles = data.news;
     });
   }
 
@@ -124,7 +123,7 @@ export class NewsComponent implements OnInit {
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
     });
-    this.getAllBlogs();
+    this.getAllNews();
   }
 
 }

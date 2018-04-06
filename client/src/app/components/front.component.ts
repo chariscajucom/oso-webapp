@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
 	templateUrl: './front.component.html'
 
 })
-export class FrontComponent {}
+export class FrontComponent {}	

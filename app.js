@@ -6,7 +6,7 @@ const config = require('./config/database');
 const path = require('path');
 const studvalidation = require('./routes/studvalidation')(router);
 const authentication = require('./routes/authentication')(router);
-const blogs = require('./routes/blog')(router);
+const news = require('./routes/news')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -25,12 +25,10 @@ mongoose.connect(config.uri, (err) => {
 app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //req.body middleware
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); // Provide static directory for frontend
 app.use('/studvalidation', studvalidation);
 app.use('/authentication', authentication);
-app.use('/blogs', blogs);
-
-
+app.use('/news', news);
 
 app.get('*', (req, res) => {  // '*' -> only need one route
   res.sendFile(path.join(__dirname + '/public/index.html'));

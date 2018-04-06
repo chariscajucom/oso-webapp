@@ -4,7 +4,6 @@ import { ServicesComponent } from './services.component';
 
 export const ServiceRoutes: Routes = [
     {
-
       path: '',
       children: [ {
         path: '',

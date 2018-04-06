@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NewsComponent } from './news.component';
 import { NewsRoutes } from './news.routing';
 import { EditNewsComponent } from './edit-news/edit-news.component';
+import { DeleteNewsComponent } from './delete-news/delete-news.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { EditNewsComponent } from './edit-news/edit-news.component';
         ReactiveFormsModule,
         RouterModule.forChild(NewsRoutes)
     ],
-    declarations: [ NewsComponent, EditNewsComponent ]
+    declarations: [ NewsComponent, EditNewsComponent, DeleteNewsComponent ]
 })
 
 export class NewsModule {}
