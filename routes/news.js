@@ -1,7 +1,6 @@
 const User = require('../models/user'); // Import User Model Schema
 const News = require('../models/news');
 const jwt = require('jsonwebtoken');
-const config = require('../config/database');
 
 module.exports = (router) => {
 

@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 const path = require('path');
 const studvalidation = require('./routes/studvalidation')(router);
+const studorgs = require('./routes/studorgs')(router);
 const authentication = require('./routes/authentication')(router);
 const news = require('./routes/news')(router);
 const bodyParser = require('body-parser');
@@ -26,6 +27,7 @@ app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //req.body middleware
 app.use(express.static(__dirname + '/public')); // Provide static directory for frontend
+app.use('/studorgs', studorgs);
 app.use('/studvalidation', studvalidation);
 app.use('/authentication', authentication);
 app.use('/news', news);

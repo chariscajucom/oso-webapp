@@ -22,7 +22,7 @@
 								<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
 									<span>UNIVERSITY WIDE</span></h6>
 								<ul class="nav flex-column" id="myTab" role="tablist">
-								  <li class="nav-item"><a class="nav-link active" id="acad-tab" data-toggle="tab" href="#acad" role="tab" aria-controls="acad" aria-selected="true"><i class="now-ui-icons business_bank"></i> Academics</a></li>
+								  <li class="nav-item"><a  (click)="getallAcadOrgs()" class="nav-link active" id="acad-tab" data-toggle="tab" href="#acad" role="tab" aria-controls="acad" aria-selected="true"><i class="now-ui-icons business_bank"></i> Academics</a></li>
 								  <li class="nav-item"><a class="nav-link" id="frat-tab" data-toggle="tab" href="#frat" role="tab" aria-controls="frat" aria-selected="true"><i class="now-ui-icons business_bank"></i> Fraternities</a></li>
 								  <li class="nav-item"><a class="nav-link" id="envi-tab" data-toggle="tab" href="#envi" role="tab" aria-controls="envi" aria-selected="true"><i class="now-ui-icons business_bank"></i> Environmental</a></li>
 
@@ -68,69 +68,20 @@
 						<div class="tab-content">
 							<div class="tab-pane active" id="acad" role="tabpanel" aria-labelledby="acad-tab">
 								<div class="row">
-									<div class="col-sm">
+									<div class="col-sm" *ngFor="let acads of acadsStudOrgs">
 											<div class="card" style="width: 18rem;">
-													<img class="card-img-top" src="../assets/osomedia/logo/jfinex.jpg" alt="Card image cap">
+													<img class="card-img-top" src="" alt="Card image cap">
 													<div class="card-body">
-													  <h5 class="card-title">JFINEX</h5>
-													  <p class="card-text">Junior Financial Executives</p>
-													  <p class="card-text">Linguistic analysis of about 300 finance articles from the UK and other countries over the past year showed that 65% of those aimed at women defined them as “splurgers”, excessive spenders with poor judgment who needed to “rein in” their spending and “limit” their outgoings in order to save.</p>
+													  <h5 class="card-title">{{ acads.acronym }}</h5>
+													  <p class="card-text">{{ acads.orgname }}</p>
+													  <p class="card-text">{{ acads.orgdesc }}</p>
 													  <ul class="list-group list-group-flush">
-															<li class="list-group-item"><i class="now-ui-icons users_circle-08"></i><strong>Advisers</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons users_single-02"></i><strong>Org President</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong>Email</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong>HQ Location</strong></li>
+															<li class="list-group-item" *ngFor="let adviser of advisers"><i class="now-ui-icons users_circle-08"></i><strong>{{ adviser }}</strong></li>
+															<li class="list-group-item"><i class="now-ui-icons users_single-02"></i><strong>{{ acads.orgpres }} </strong></li>
+															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong>{{ acads.orgemail}}</strong></li>
+															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong>{{ acads.orghq}}</strong></li>
 														  </ul>
 													  
-													</div>
-													
-													<div class="card-footer">
-															<a _ngcontent-c3="" class="btn btn-primary btn-icon btn-round" href="#pablo"><i _ngcontent-c3="" class="fa fa-twitter"></i></a>
-															<a _ngcontent-c3="" class="btn btn-primary btn-icon btn-round" href="#pablo"><i _ngcontent-c3="" class="fa fa-facebook-square"></i></a>
-													</div>
-												  </div>
-									</div>
-									<div class="col-sm">
-											<div class="card" style="width: 18rem;">
-													<img class="card-img-top" src="../assets/osomedia/logo/cybl.jpg" alt="Card image cap">
-													<div class="card-body">
-													  <h5 class="card-title">CYBL</h5>
-													  <p class="card-text">Chamber of Young Business Leaders</p>
-													  <p class="card-text">Leadership skills development is paramount to the success of any employee who wants to gain influence and become an integral part of their company. In the following articles on leadership skills, Joel Garfinkle offers helpful tips on how to stand out and gain visibility at work and position yourself as a leader for ultimate success in your career.</p>
-													  <ul class="list-group list-group-flush">
-															<li class="list-group-item"><i class="now-ui-icons users_circle-08"></i><strong> Advisers</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons users_single-02"></i><strong> Org President</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong> Email</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong> HQ Location</strong></li>
-														  </ul>
-													  
-													</div>
-													
-													<div class="card-footer">
-															<a _ngcontent-c3="" class="btn btn-primary btn-icon btn-round" href="#pablo"><i _ngcontent-c3="" class="fa fa-twitter"></i></a>
-															<a _ngcontent-c3="" class="btn btn-primary btn-icon btn-round" href="#pablo"><i _ngcontent-c3="" class="fa fa-facebook-square"></i></a>
-													</div>
-												  </div>
-									</div>
-									<div class="col-sm">
-											<div class="card" style="width: 18rem;">
-													<img class="card-img-top" src="../assets/osomedia/logo/asset.jpg" alt="Card image cap">
-													<div class="card-body">
-													  <h5 class="card-title">JFINEX</h5>
-													  <p class="card-text">Junior Financial Executives</p>
-													  <p class="card-text">Linguistic analysis of about 300 finance articles from the UK and other countries over the past year showed that 65% of those aimed at women defined them as “splurgers”, excessive spenders with poor judgment who needed to “rein in” their spending and “limit” their outgoings in order to save.</p>
-													  <ul class="list-group list-group-flush">
-															<li class="list-group-item"><i class="now-ui-icons users_circle-08"></i><strong>Advisers</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons users_single-02"></i><strong>Org President</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong>Email</strong></li>
-															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong>HQ Location</strong></li>
-														  </ul>
-													  
-													</div>
-													
-													<div class="card-footer">
-															<a _ngcontent-c3="" class="btn btn-primary btn-icon btn-round" href="#pablo"><i _ngcontent-c3="" class="fa fa-twitter"></i></a>
-															<a _ngcontent-c3="" class="btn btn-primary btn-icon btn-round" href="#pablo"><i _ngcontent-c3="" class="fa fa-facebook-square"></i></a>
 													</div>
 												  </div>
 									</div>
