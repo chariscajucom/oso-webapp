@@ -8,6 +8,7 @@ import { StudOrgsService } from '../../myservices/studorgs.service';
 })
 export class StudorgsComponent implements OnInit {
 
+  fratsStudOrgs;
   acadsStudOrgs;
 
   constructor(
@@ -17,6 +18,12 @@ export class StudorgsComponent implements OnInit {
   getallAcadOrgs(){
     this.studorgsservice.getAllAcadOrgs().subscribe(data => {
       this.acadsStudOrgs = data.studorgs;
+    });
+  }
+
+  getallFratOrgs(){
+    this.studorgsservice.getAllFratOrgs().subscribe(data => {
+      this.fratsStudOrgs = data.studorgs;
     });
   }
 

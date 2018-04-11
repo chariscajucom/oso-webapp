@@ -23,7 +23,7 @@
 									<span>UNIVERSITY WIDE</span></h6>
 								<ul class="nav flex-column" id="myTab" role="tablist">
 								  <li class="nav-item"><a  (click)="getallAcadOrgs()" class="nav-link active" id="acad-tab" data-toggle="tab" href="#acad" role="tab" aria-controls="acad" aria-selected="true"><i class="now-ui-icons business_bank"></i> Academics</a></li>
-								  <li class="nav-item"><a class="nav-link" id="frat-tab" data-toggle="tab" href="#frat" role="tab" aria-controls="frat" aria-selected="true"><i class="now-ui-icons business_bank"></i> Fraternities</a></li>
+								  <li class="nav-item"><a  (click)="getallFratOrgs()" class="nav-link" id="frat-tab" data-toggle="tab" href="#frat" role="tab" aria-controls="frat" aria-selected="true"><i class="now-ui-icons business_bank"></i> Fraternities</a></li>
 								  <li class="nav-item"><a class="nav-link" id="envi-tab" data-toggle="tab" href="#envi" role="tab" aria-controls="envi" aria-selected="true"><i class="now-ui-icons business_bank"></i> Environmental</a></li>
 
 								  <li class="nav-item"><a class="nav-link" id="life-tab" data-toggle="tab" href="#life" role="tab" aria-controls="life" aria-selected="true"><i class="now-ui-icons business_bank"></i> Lifestyle</a></li>
@@ -81,14 +81,30 @@
 															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong>{{ acads.orgemail}}</strong></li>
 															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong>{{ acads.orghq}}</strong></li>
 														  </ul>
-													  
 													</div>
 												  </div>
 									</div>
 								</div>
 							</div>
 							<div class="tab-pane" id="frat" role="tabpanel" aria-labelledby="frat-tab">
-								frats
+								<div class="row">
+									<div class="col-sm" *ngFor="let frats of fratsStudOrgs">
+											<div class="card" style="width: 18rem;">
+													<img class="card-img-top" src="{{ frats.orglogo }}" alt="Card image cap">
+													<div class="card-body">
+													  <h5 class="card-title">{{ frats.acronym }}</h5>
+													  <p class="card-text">{{ frats.orgname }}</p>
+													  <p class="card-text">{{ frats.orgdesc }}</p>
+													  <ul class="list-group list-group-flush">
+															<li class="list-group-item" *ngFor="let adviser of frats.orgadviser"><i class="now-ui-icons users_circle-08"></i><strong>{{ adviser }}</strong></li>
+															<li class="list-group-item"><i class="now-ui-icons users_single-02"></i><strong>{{ frats.orgpres }} </strong></li>
+															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong>{{ frats.orgemail}}</strong></li>
+															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong>{{ frats.orghq}}</strong></li>
+														  </ul>
+													</div>
+												  </div>
+									</div>
+								</div>
 							</div>
 							<div class="tab-pane" id="envi" role="tabpanel" aria-labelledby="envi-tab">
 								Environmental

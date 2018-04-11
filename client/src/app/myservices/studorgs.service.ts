@@ -11,5 +11,9 @@ export class StudOrgsService {
     getAllAcadOrgs(){
         return this.http.get(this.domain + 'studorgs/allAcadOrgs').map(res => res.json());
     }
+
+    getAllFratOrgs(){
+        return this.http.get(this.domain + 'studorgs/allFratOrgs').map(res => res.json());
+    }
         
 }
