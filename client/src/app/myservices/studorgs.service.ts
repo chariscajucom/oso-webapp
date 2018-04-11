@@ -15,5 +15,29 @@ export class StudOrgsService {
     getAllFratOrgs(){
         return this.http.get(this.domain + 'studorgs/allFratOrgs').map(res => res.json());
     }
+
+    getAllEnvOrgs(){
+        return this.http.get(this.domain + 'studorgs/allEnvOrgs').map(res => res.json());
+    }
+
+    getAllLifeOrgs(){
+        return this.http.get(this.domain + 'studorgs/allLifeOrgs').map(res => res.json());
+    }
+
+    getAllPoliOrgs(){
+        return this.http.get(this.domain + 'studorgs/allPoliOrgs').map(res => res.json());
+    }
+
+    getAllSocioOrgs(){
+        return this.http.get(this.domain + 'studorgs/allSocioOrgs').map(res => res.json());
+    }
+
+    getAllSpiritOrgs(){
+        return this.http.get(this.domain + 'studorgs/allSpiritOrgs').map(res => res.json());
+    }
+
+    getAllBustosOrgs(){
+        return this.http.get(this.domain + 'studorgs/allBustosOrgs').map(res => res.json());
+    }
         
 }

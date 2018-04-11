@@ -8,6 +8,12 @@ import { StudOrgsService } from '../../myservices/studorgs.service';
 })
 export class StudorgsComponent implements OnInit {
 
+  bustosStudOrgs: any;
+  spiritStudOrgs: any;
+  socioStudOrgs: any;
+  poliStudOrgs: any;
+  lifeStudOrgs: any;
+  envStudOrgs: any;
   fratsStudOrgs;
   acadsStudOrgs;
 
@@ -27,6 +33,42 @@ export class StudorgsComponent implements OnInit {
     });
   }
 
+  getallEnvOrgs(){
+    this.studorgsservice.getAllEnvOrgs().subscribe(data => {
+      this.envStudOrgs = data.studorgs;
+    }); 
+  }
+
+  getallLifeOrgs(){
+    this.studorgsservice.getAllLifeOrgs().subscribe(data => {
+      this.lifeStudOrgs = data.studorgs;
+    });
+  }
+
+  getallPoliOrgs(){
+    this.studorgsservice.getAllPoliOrgs().subscribe(data => {
+      this.poliStudOrgs = data.studorgs;
+    });
+  }
+
+  getallSocioOrgs(){
+    this.studorgsservice.getAllSocioOrgs().subscribe(data => {
+      this.socioStudOrgs = data.studorgs;
+    });
+  }
+
+  getallSpiritOrgs(){
+    this.studorgsservice.getAllSpiritOrgs().subscribe(data =>{
+      this.spiritStudOrgs = data.studorgs;
+    });
+  }
+
+  getallBustosOrgs(){
+    this.studorgsservice.getAllBustosOrgs().subscribe(data => {
+      this.bustosStudOrgs = data.studorgs;
+    });
+  }
+  
   ngOnInit() {
     this.getallAcadOrgs();
   }
