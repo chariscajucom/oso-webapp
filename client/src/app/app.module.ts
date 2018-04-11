@@ -26,6 +26,7 @@ import { NewsService } from './myservices/news.service';
 
 import { AuthGuard } from './guard/auth-guard.service';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     NavbarModule,
     SidebarModule,
     DashNavbarModule,

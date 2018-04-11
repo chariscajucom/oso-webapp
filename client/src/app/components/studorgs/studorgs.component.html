@@ -70,13 +70,13 @@
 								<div class="row">
 									<div class="col-sm" *ngFor="let acads of acadsStudOrgs">
 											<div class="card" style="width: 18rem;">
-													<img class="card-img-top" src="" alt="Card image cap">
+													<img class="card-img-top" src="{{ acads.orglogo }}" alt="Card image cap">
 													<div class="card-body">
 													  <h5 class="card-title">{{ acads.acronym }}</h5>
 													  <p class="card-text">{{ acads.orgname }}</p>
 													  <p class="card-text">{{ acads.orgdesc }}</p>
 													  <ul class="list-group list-group-flush">
-															<li class="list-group-item" *ngFor="let adviser of advisers"><i class="now-ui-icons users_circle-08"></i><strong>{{ adviser }}</strong></li>
+															<li class="list-group-item" *ngFor="let adviser of acads.orgadviser"><i class="now-ui-icons users_circle-08"></i><strong>{{ adviser }}</strong></li>
 															<li class="list-group-item"><i class="now-ui-icons users_single-02"></i><strong>{{ acads.orgpres }} </strong></li>
 															<li class="list-group-item"><i class="now-ui-icons ui-1_email-85"></i><strong>{{ acads.orgemail}}</strong></li>
 															<li class="list-group-item"><i class="now-ui-icons location_pin"></i><strong>{{ acads.orghq}}</strong></li>

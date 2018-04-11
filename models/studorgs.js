@@ -6,7 +6,7 @@ const studorgsSchema = new Schema({
     acronym: {type: String, required: true},
     orgname: {type: String, required: true},
     orgdesc: {type: String, required: true},
-    orgadviser: {type: String, required: true},
+    orgadviser: {type: Array },
     orgpres: {type: String, required: true},
     orgemail: {type: String, required: true},
     orghq: {type: String, required: true},
