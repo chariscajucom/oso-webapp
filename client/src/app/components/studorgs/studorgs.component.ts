@@ -8,6 +8,22 @@ import { StudOrgsService } from '../../myservices/studorgs.service';
 })
 export class StudorgsComponent implements OnInit {
 
+  hagonoyStudOrgs: any;
+  menesesStudOrgs: any;
+  sarmientoStudOrgs: any;
+  cafaStudOrgs: any;
+  calStudOrgs: any;
+  cbaStudOrgs: any;
+  ccjeStudOrgs: any;
+  coedStudOrgs: any;
+  coeStudOrgs: any;
+  cheStudOrgs: any;
+  citStudOrgs: any;
+  cictStudOrgs: any;
+  conStudOrgs: any;
+  copersStudOrgs: any;
+  csStudOrgs: any;
+  csspStudOrgs: any;
   bustosStudOrgs: any;
   spiritStudOrgs: any;
   socioStudOrgs: any;
@@ -68,7 +84,105 @@ export class StudorgsComponent implements OnInit {
       this.bustosStudOrgs = data.studorgs;
     });
   }
+
+  getallHagonoyOrgs(){
+    this.studorgsservice.getAllHagonoyOrgs().subscribe(data=>{
+      this.hagonoyStudOrgs = data.studorgs;
+    });
+  }
+
+  getallMenesesOrgs(){
+    this.studorgsservice.getAllMenesesOrgs().subscribe(data=>{
+      this.menesesStudOrgs = data.studorgs;
+    });
+  }
+
+  getallSarmientoOrgs(){
+    this.studorgsservice.getAllSarmientoOrgs().subscribe(data=>{
+      this.sarmientoStudOrgs = data.studorgs;
+    });
+  }
+
   
+  getallCAFAOrgs(){
+    this.studorgsservice.getAllCAFAOrgs().subscribe(data=>{
+      this.cafaStudOrgs = data.studorgs;
+    });    
+}
+
+getallCALOrgs(){
+  this.studorgsservice.getAllCALOrgs().subscribe(data=>{
+    this.calStudOrgs = data.studorgs;
+  });
+    
+}
+
+getallCBAOrgs(){
+  this.studorgsservice.getAllCBAOrgs().subscribe(data=>{
+    this.cbaStudOrgs = data.studorgs;
+  });
+}
+
+getallCCJEOrgs(){
+  this.studorgsservice.getAllCCJEOrgs().subscribe(data=>{
+    this.ccjeStudOrgs = data.studorgs;
+  });
+}
+
+getallCOEDOrgs(){
+  this.studorgsservice.getAllCOEDOrgs().subscribe(data=>{
+    this.coedStudOrgs = data.studorgs;
+  });
+}
+
+getallCOEOrgs(){
+  this.studorgsservice.getAllCOEOrgs().subscribe(data=>{
+    this.coeStudOrgs = data.studorgs;
+  });
+}
+
+getallCHEOrgs(){
+  this.studorgsservice.getAllCHEOrgs().subscribe(data=>{
+    this.cheStudOrgs = data.studorgs;
+  });
+}
+
+getallCITOrgs(){
+  this.studorgsservice.getAllCITOrgs().subscribe(data=>{
+    this.citStudOrgs = data.studorgs;
+  });
+}
+
+getallCICTOrgs(){
+  this.studorgsservice.getAllCICTOrgs().subscribe(data=>{
+    this.cictStudOrgs = data.studorgs;
+  });
+}
+
+getallCONOrgs(){
+  this.studorgsservice.getAllCONOrgs().subscribe(data=>{
+    this.conStudOrgs = data.studorgs;
+  });
+}
+
+getallCOPERSOrgs(){
+  this.studorgsservice.getAllCOPERSOrgs().subscribe(data=>{
+    this.copersStudOrgs = data.studorgs;
+  });
+}
+
+getallCSOrgs(){
+  this.studorgsservice.getAllCSOrgs().subscribe(data=>{
+    this.csStudOrgs = data.studorgs;
+  });
+}
+
+getallCSSPOrgs(){
+  this.studorgsservice.getAllCSSPOrgs().subscribe(data=>{
+    this.csspStudOrgs = data.studorgs;
+  });
+}
+
   ngOnInit() {
     this.getallAcadOrgs();
   }

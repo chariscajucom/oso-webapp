@@ -9,11 +9,11 @@
   <button [disabled]="loadingNews" type="button" name="button" class="btn btn-default" *ngIf="!newPost" (click)="reloadNews()"><i class="now-ui-icons loader_refresh"></i>&nbsp;&nbsp;Reload</button>
 <!-- Create new news post -->
 <!-- New title -->
-      <form [formGroup]="form" name="newsForm" (submit)="onNewsSubmit()" *ngIf="newPost">
+      <form [formGroup]="form" name="newsForm" (ngSubmit)="onNewsSubmit()" *ngIf="newPost">
         <div class="form-group">
           <label for="title">Title</label>
           <div [ngClass]="{'has-success': form.controls.title.valid, 'has-error': form.controls.title.dirty && form.controls.title.errors }">
-            <input type="text" name="title" class="form-control" placeholder="News Title" autocomplete="off" formControlName="title"/>
+            <input id="title" #newsTitle type="text" name="title" class="form-control" placeholder="News Title" autocomplete="off" formControlName="title"/>
             <ul class="form-text">
               <li *ngIf="form.controls.title.dirty && form.controls.title.errors?.required">This field is required.</li>
               <li *ngIf="(form.controls.title.dirty && form.controls.title.errors?.minlength) || (form.controls.title.dirty && form.controls.title.errors?.maxlength)">Max Length: 50, Min: 5</li>
@@ -27,7 +27,7 @@
     <div class="form-group">
       <label for="body">Body</label>
       <div [ngClass]="{'has-success': form.controls.body.valid, 'has-error': form.controls.body.dirty && form.controls.body.errors }">
-        <textarea name="body" rows="10" cols="10" placeholder="Body" class="form-control" formControlName="body"></textarea>
+        <textarea id="body" name="body" rows="10" cols="10" placeholder="Body" class="form-control" formControlName="body"></textarea>
         <ul class="form-text">
           <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.required">This field is required.</li>
           <li *ngIf="(form.controls.body.dirty && form.controls.body.errors?.minlength) || (form.controls.body.dirty && form.controls.body.errors?.maxlength)">Max Length: 500, Min: 15</li>
@@ -35,8 +35,15 @@
       </div>
     </div>
   <!-- New Body -->
-  <button [disabled]="processing" type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
-  <button [disabled]="processing || !form.valid" type="submit" name="button" class="btn btn-success">Submit</button>
+  <div class="form-group">
+    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" #fileInput name="fileUp" (change)="onFileSelect($event)"/>
+    <img *ngIf="imageReady" #image class="img-responsive top-margin" src="{{imageUrl}}{{imagePath}}" alt="image" onerror="this.src ='assets/images/no-image.jpg';"/>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="processing" type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+  <button [disabled]="processing || !form.valid" type="submit" name="button" id="button" class="btn btn-success">Submit</button>
+  </div>
 <!-- Create new news post -->
   </form>
   <!-- NEWS -->

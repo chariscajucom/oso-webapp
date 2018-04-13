@@ -39,5 +39,69 @@ export class StudOrgsService {
     getAllBustosOrgs(){
         return this.http.get(this.domain + 'studorgs/allBustosOrgs').map(res => res.json());
     }
-        
+
+    getAllHagonoyOrgs(){
+        return this.http.get(this.domain + 'studorgs/allHagonoyOrgs').map(res => res.json());
+    }
+
+    getAllMenesesOrgs(){
+        return this.http.get(this.domain + 'studorgs/allMenesesOrgs').map(res => res.json());
+    }
+
+    getAllSarmientoOrgs(){
+        return this.http.get(this.domain + 'studorgs/allSarmientoOrgs').map(res => res.json());
+    }
+
+    getAllCAFAOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCAFAOrgs').map(res=>res.json());
+    }
+
+    getAllCALOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCALOrgs').map(res=>res.json());
+    }
+    
+    getAllCBAOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCBAOrgs').map(res=>res.json());
+    }
+
+    getAllCCJEOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCCJEOrgs').map(res=>res.json());
+    }
+
+    getAllCOEDOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCOEDOrgs').map(res=>res.json());
+    }
+
+    getAllCOEOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCOEOrgs').map(res=>res.json());
+    }
+
+    getAllCHEOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCHEOrgs').map(res=>res.json());
+    }
+
+    getAllCITOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCITOrgs').map(res=>res.json());
+    }
+
+    getAllCICTOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCICTOrgs').map(res=>res.json());
+    }
+
+    getAllCONOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCONOrgs').map(res=>res.json());
+    }
+
+    getAllCOPERSOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCOPERSOrgs').map(res=>res.json());
+    }
+
+    getAllCSOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCSOrgs').map(res=>res.json());
+    }
+
+    getAllCSSPOrgs(){
+        return this.http.get(this.domain + 'studorgs/allCSSPOrgs').map(res=>res.json());
+    }
+
 }
