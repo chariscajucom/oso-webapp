@@ -48,5 +48,23 @@ export class NewsService {
     return this.http.delete(this.domain + 'news/deleteNews/'+ id, this.options).map(res => res.json());
   }
 
+  likeNews(id){
+    const newsData = { id: id };
+    return this.http.put(this.domain + 'news/likeNews/', newsData, this.options).map(res => res.json());
+  }
+
+  dislikeNews(id){
+    const newsData = { id: id };
+    return this.http.put(this.domain + 'news/dislikeNews/', newsData, this.options).map(res => res.json());
+  }
+
+  postComment(id, comment){
+    this.createAuthenticationHeaders();
+    const newsData = {
+      id: id,
+      comment: comment
+    }
+    return this.http.post(this.domain + 'news/comment', newsData, this.options).map(res=>res.json());
+  }
 
 }

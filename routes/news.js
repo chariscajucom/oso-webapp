@@ -182,6 +182,208 @@ module.exports = (router) => {
       }
     });
 
+    /* LIKE NEWS POST */
+  router.put('/likeNews', (req, res) => {
+    // Check if id was passed provided in request body
+    if (!req.body.id) {
+      res.json({ success: false, message: 'No id was provided.' }); // Return error message
+    } else {
+      // Search the database with id
+      News.findOne({ _id: req.body.id }, (err, news) => {
+        // Check if error was encountered
+        if (err) {
+          res.json({ success: false, message: 'Invalid news id' }); // Return error message
+        } else {
+          // Check if id matched the id of a news post in the database
+          if (!news) {
+            res.json({ success: false, message: 'That news was not found.' }); // Return error message
+          } else {
+            // Get data from user that is signed in
+            User.findOne({ _id: req.decoded.userId }, (err, user) => {
+              // Check if error was found
+              if (err) {
+                res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+              } else {
+                // Check if id of user in session was found in the database
+                if (!user) {
+                  res.json({ success: false, message: 'Could not authenticate user.' }); // Return error message
+                } else {
+                  // Check if user who liked post is the same user that originally created the news post
+                  if (user.username === news.createdBy) {
+                    res.json({ success: false, messagse: 'Cannot like your own post.' }); // Return error message
+                  } else {
+                    // Check if the user who liked the post has already liked the news post before
+                    if (news.likedBy.includes(user.username)) {
+                      res.json({ success: false, message: 'You already liked this post.' }); // Return error message
+                    } else {
+                      // Check if user who liked post has previously disliked a post
+                      if (news.dislikedBy.includes(user.username)) {
+                        news.dislikes--; // Reduce the total number of dislikes
+                        const arrayIndex = news.dislikedBy.indexOf(user.username); // Get the index of the username in the array for removal
+                        news.dislikedBy.splice(arrayIndex, 1); // Remove user from array
+                        news.likes++; // Increment likes
+                        news.likedBy.push(user.username); // Add username to the array of likedBy array
+                        // Save news post data
+                        news.save((err) => {
+                          // Check if error was found
+                          if (err) {
+                            res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                          } else {
+                            res.json({ success: true, message: 'News liked!' }); // Return success message
+                          }
+                        });
+                      } else {
+                        news.likes++; // Incriment likes
+                        news.likedBy.push(user.username); // Add liker's username into array of likedBy
+                        // Save news post
+                        news.save((err) => {
+                          if (err) {
+                            res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                          } else {
+                            res.json({ success: true, message: 'News liked!' }); // Return success message
+                          }
+                        });
+                      }
+                    }
+                  }
+                }
+              }
+            });
+          }
+        }
+      });
+    }
+  });
+
+  
+    /* DISLIKE NEWS POST */
+    router.put('/dislikeNews', (req, res) => {
+      // Check if id was passed provided in request body
+      if (!req.body.id) {
+        res.json({ success: false, message: 'No id was provided.' }); // Return error message
+      } else {
+        // Search the database with id
+        News.findOne({ _id: req.body.id }, (err, news) => {
+          // Check if error was encountered
+          if (err) {
+            res.json({ success: false, message: 'Invalid news id' }); // Return error message
+          } else {
+            // Check if id matched the id of a news post in the database
+            if (!news) {
+              res.json({ success: false, message: 'That news was not found.' }); // Return error message
+            } else {
+              // Get data from user that is signed in
+              User.findOne({ _id: req.decoded.userId }, (err, user) => {
+                // Check if error was found
+                if (err) {
+                  res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                } else {
+                  // Check if id of user in session was found in the database
+                  if (!user) {
+                    res.json({ success: false, message: 'Could not authenticate user.' }); // Return error message
+                  } else {
+                    // Check if user who liked post is the same user that originally created the news post
+                    if (user.username === news.createdBy) {
+                      res.json({ success: false, messagse: 'Cannot dislike your own post.' }); // Return error message
+                    } else {
+                      // Check if the user who liked the post has already liked the news post before
+                      if (news.dislikedBy.includes(user.username)) {
+                        res.json({ success: false, message: 'You already disliked this post.' }); // Return error message
+                      } else {
+                        // Check if user who liked post has previously disliked a post
+                        if (news.likedBy.includes(user.username)) {
+                          news.likes--; // Reduce the total number of dislikes
+                          const arrayIndex = news.likedBy.indexOf(user.username); // Get the index of the username in the array for removal
+                          news.likedBy.splice(arrayIndex, 1); // Remove user from array
+                          news.dislikes++; // Increment likes
+                          news.dislikedBy.push(user.username); // Add username to the array of likedBy array
+                          // Save news post data
+                          news.save((err) => {
+                            // Check if error was found
+                            if (err) {
+                              res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                            } else {
+                              res.json({ success: true, message: 'News disliked!' }); // Return success message
+                            }
+                          });
+                        } else {
+                          news.dislikes++; // Incriment likes
+                          news.dislikedBy.push(user.username); // Add liker's username into array of likedBy
+                          // Save news post
+                          news.save((err) => {
+                            if (err) {
+                              res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                            } else {
+                              res.json({ success: true, message: 'News disliked!' }); // Return success message
+                            }
+                          });
+                        }
+                      }
+                    }
+                  }
+                }
+              });
+            }
+          }
+        });
+      }
+    });
+
+    // COMMENT NEWs
+    router.post('/comment', (req, res) => {
+      // Check if comment was provided in request body
+      if (!req.body.comment) {
+        res.json({ success: false, message: 'No comment provided' }); // Return error message
+      } else {
+        // Check if id was provided in request body
+        if (!req.body.id) {
+          res.json({ success: false, message: 'No id was provided' }); // Return error message
+        } else {
+          // Use id to search for blog post in database
+          News.findOne({ _id: req.body.id }, (err, news) => {
+            // Check if error was found
+            if (err) {
+              res.json({ success: false, message: 'Invalid news id' }); // Return error message
+            } else {
+              // Check if id matched the id of any blog post in the database
+              if (!news) {
+                res.json({ success: false, message: 'News not found.' }); // Return error message
+              } else {
+                // Grab data of user that is logged in
+                User.findOne({ _id: req.decoded.userId }, (err, user) => {
+                  // Check if error was found
+                  if (err) {
+                    res.json({ success: false, message: 'Something went wrong' }); // Return error message
+                  } else {
+                    // Check if user was found in the database
+                    if (!user) {
+                      res.json({ success: false, message: 'User not found.' }); // Return error message
+                    } else {
+                      // Add the new comment to the blog post's array
+                      news.comments.push({
+                        comment: req.body.comment, // Comment field
+                        commentator: user.username // Person who commented
+                      });
+                      // Save blog post
+                      news.save((err) => {
+                        // Check if error was found
+                        if (err) {
+                          res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                        } else {
+                          res.json({ success: true, message: 'Comment saved' }); // Return success message
+                        }
+                      });
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }
+      }
+    });
+  
+
 
 return router;
 };

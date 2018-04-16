@@ -5,17 +5,21 @@ import { NewsService } from '../../myservices/news.service';
 
 @Component({
   selector: 'admin-news',
-  templateUrl: './news.component.html'
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
   message;
   messageClass;
   newPost = false;
   loadingNews = false;
-  form: FormGroup;
+  form;
+  commentForm;
   processing = false;
   username;
   newsArticles;
+  newComment = [];
+  enabledComments = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +28,7 @@ export class NewsComponent implements OnInit {
   )
   {
     this.createNewsPost();
+    this.createCommentForm();
   }
 
   createNewsPost(){
@@ -40,6 +45,24 @@ export class NewsComponent implements OnInit {
 						Validators.maxLength(500)
 				])]
     })
+  }
+
+  createCommentForm(){
+    this.commentForm = this.formBuilder.group({
+      comment: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(200)
+      ])]
+    });
+  }
+
+  enableCommentForm(){
+    this.commentForm.get('comment').enable();
+  }
+
+  disableCommentForm(){
+    this.commentForm.get('comment').disable();
   }
 
   enableFormNewsForm(){
@@ -73,8 +96,18 @@ export class NewsComponent implements OnInit {
   }, 4000);
   }
 
-  draftComment(){
+  draftComment(id){
+    this.commentForm.reset();
+    this.newComment = [];
+    this.newComment.push(id);
+  }
 
+  cancelSubmission(id){
+    const index = this.newComment.indexOf(id);
+    this.newComment.splice(index, 1);
+    this.commentForm.reset();
+    this.enableCommentForm();
+    this.processing = false;
   }
 
   onNewsSubmit(){
@@ -117,6 +150,43 @@ export class NewsComponent implements OnInit {
     this.newsService.getAllNews().subscribe(data =>{
       this.newsArticles = data.news;
     });
+  }
+
+  likeNews(id){
+    this.newsService.likeNews(id).subscribe(data => {
+      this.getAllNews();
+    });
+  }
+
+  dislikeNews(id){
+    this.newsService.dislikeNews(id).subscribe(data => {
+      this.getAllNews();
+    });
+  }
+
+  postComment(id){
+    this.disableCommentForm();
+    this.processing= true;
+    const comment = this.commentForm.get('comment').value;
+    this.newsService.postComment(id, comment).subscribe(data=>
+    {
+      this.getAllNews();
+      const index = this.newComment.indexOf(id);
+      this.newComment.splice(index, 1);
+      this.enableCommentForm();
+      this.commentForm.reset();
+      this.processing = false;
+      if(this.enabledComments.indexOf(id) < 0) this.expand(id);
+    });
+  }
+
+  expand(id){
+    this.enabledComments.push(id);
+  }
+
+  collapse(id){
+    const index = this.enabledComments.indexOf(id);
+    this.enabledComments.splice(index, 1);
   }
 
   ngOnInit() {

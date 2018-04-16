@@ -76,25 +76,21 @@
         <a [routerLink]="['delete/', news._id ]" *ngIf="username === news.createdBy" class="btn btn-danger mx-1 rounded" role="button">Delete</a>
 
           <!-- Likes Dropdown -->
-        <div class="dropdown dropup">
-          <button class="btn btn-success mx-1 dropdown-toggle" *ngIf="username !== news.createdBy" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Likes: 8
+        <div class="dropdown">
+          <button [disabled]="news.likedBy.indexOf(username) > -1" class="dropbtn" *ngIf="username !== news.createdBy" (click)="likeNews(news._id)" type="button">
+            Likes: {{ news.likes }}
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" *ngFor="let liker of news.likedBy">{{ liker }}</a>
           </div>
         </div>
         <!-- Dislikes Dropdown -->
-        <div class="dropdown dropup">
-          <button class="btn btn-warning mx-1 dropdown-toggle" *ngIf="username !== news.createdBy" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dislikes
+        <div class="dropdown">
+          <button [disabled]="news.dislikedBy.indexOf(username) > -1" class="dropbtn" *ngIf="username !== news.createdBy" (click)="dislikeNews(news._id)" type="button">
+            Dislikes: {{ news.dislikes }}
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" *ngFor="let disliker of news.dislikedBy">{{ disliker }}</a>
           </div>
         </div>
       </div>
@@ -102,10 +98,39 @@
     <!-- footer end -->
     <ul class="list-group">
       <li class="list-group-item">
-        <button class="btn btn-outline-secondary" name="button" type="button" (click)="draftComment()">Post Comment</button>
+        <button class="btn btn-danger" name="button" type="button" (click)="draftComment(news._id)" [disabled]="newComment.indexOf(news._id) > -1">Post Comment</button>
         <br>
-      </li>
+       <div *ngIf="newComment.indexOf(news._id) > -1">
+        <form [formGroup]="commentForm">
+          <textarea name="comment" cols="30" rows="10" class="form-control" formControlName="comment"></textarea>
+          <div [ngClass]="{'has-success': !commentForm.controls.comment.errors && commentForm.controls.comment.dirty, 'has-error': commentForm.controls.comment.dirty && commentForm.controls.comment.errors}">
+            <!-- <ul class="help-block">
+              <li *ngIf="commentForm.controls.comment.errors?.required && commentForm.controls.comment.dirty">This field is required.</li>
+              <li *ngIf="(commentForm.controls.comment.errors?.maxlength && commentForm.controls.comment.dirty)|| (commentForm.control.comment.errors?.minlength && commentForm.controls.comment.dirty)">Comment requires 200 max characters.</li>
+            </ul> -->
+          </div>
+          <button [disabled]="!commentForm.valid || processing" type="submit" name="button" class="btn btn-sm btn-info" (click)="postComment(news._id)">Submit Post</button>
+          <button [disabled]="processing" type="button" name="button" class="btn btn-sm btn-danger" (click)="cancelSubmission(news._id)">Cancel</button>
+        </form>
+       </div>
+       <li *ngIf="enabledComments.indexOf(news._id) === -1 && news.comments.length > 0" class="list-group-item">
+         <span (click)="expand(news._id)">Show Comments&nbsp;&nbsp;
+           <div class="now-ui-icons ui-1_simple-add"></div>
+         </span>
+       </li>
+       <li *ngIf="enabledComments.indexOf(news._id)> -1" class="list-group-item">
+        <span (click)="collapse(news._id)">Hide Comments&nbsp;&nbsp;
+          <div class="now-ui-icons ui-1_simple-add">       </div>
+        </span>
+       </li>
+       <div *ngIf="enabledComments.indexOf(news._id)> -1">
+        <li *ngFor="let comment of news.comments" class="list-group-item">
+          <strong>{{ comment.commentator }}</strong>
+          {{ comment.comment }}
+        </li>
+       </div>
+      
     </ul>
-  </div>
-  </div>
-</div>
+  </div><!-- card -->
+  </div> <!-- ngif NewPost -->
+</div> <!-- container -->
