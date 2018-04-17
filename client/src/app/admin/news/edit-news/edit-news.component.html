@@ -15,7 +15,7 @@
       <label for="Title">Body</label>
       <textarea [disabled]="processing" type="text" rows="80" name="body" placeholder="News Body" class="form-control" [(ngModel)]="news.body"></textarea>
     </div>
-    <a [routerLink]="['/delete/', news._id]"><button type="button" name="button" class="btn btn-danger">Delete</button></a>
+    <a [routerLink]="['/admin/news/delete/', news._id]"><button type="button" name="button" class="btn btn-danger">Delete</button></a>
     <button type="button" name="button" class="btn btn-info" (click)="goBack()">Go Back</button>
     <button [disabled]="processing" type="submit" name="save" class="btn btn-success">Save Changes</button>
   </form>
