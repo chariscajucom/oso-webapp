@@ -9,6 +9,7 @@ import { FrontNewsService } from '../../myservices/frontnews.service';
 })
 export class FrontNewsComponent implements OnInit {
 
+  enabledComments = [];
   frontNewsArticles;
   constructor( private frontnewsService: FrontNewsService ) { }
 
@@ -17,7 +18,7 @@ export class FrontNewsComponent implements OnInit {
       this.frontNewsArticles = data.frontnews;
     });
   }
-
+  
   ngOnInit() {
     this.getallFrontNews();
   }
