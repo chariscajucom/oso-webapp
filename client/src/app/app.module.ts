@@ -7,11 +7,11 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
 import { NavbarModule } from './components/navbar/navbar.module';
 import { SidebarModule } from './admin/sidebar/sidebar.module';
 import { DashNavbarModule } from './admin/shared/navbar/dash-navbar.module';
 import { FooterModule } from './admin/shared/footer/footer.module';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { FileUploadModule } from 'ng2-file-upload';
 // import { BsModalModule  } from 'ng2-bs3-modal';
@@ -38,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent
   ],
   imports: [
+    FroalaEditorModule.forRoot(), 
+        FroalaViewModule.forRoot(),    
     RouterModule.forRoot(AppRoutes),
     FileUploadModule,
     BrowserModule,
