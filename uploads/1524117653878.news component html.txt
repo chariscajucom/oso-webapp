@@ -1,0 +1,34 @@
+<form [formGroup]="form" name="newsForm" (ngSubmit)="onNewsSubmit()"> 
+        <div class="form-group">
+            <div [ngClass]="{'has-success': form.controls.newsPic.valid, 'has-error': form.controls.newsPic.dirty && form.controls.newsPic.errors }">
+                <div class="upload-btn-wrapper">
+                <button class="btn-file-input">Upload an image</button>
+                <input type="file" id="newsPic" name="newsPic" (change)="onFileChange($event)" #fileInput/>
+              </div>
+              </div>
+
+           
+          </div>
+      <div class="form-group">
+        <div [ngClass]="{'has-success': form.controls.newsTitle.valid, 'has-error': form.controls.newsTitle.dirty && form.controls.newsTitle.errors }">
+          <input type="text" name="newsTitle"  class="form-control form-control-lg" id="newsTitle" placeholder="Think of your next awesome news post!" autocomplete="off" formControlName="newsTitle"/>
+          <ul class="form-text">
+            <li *ngIf="form.controls.newsTitle.dirty && form.controls.newsTitle.errors?.required">This field is required.</li>
+            <li *ngIf="(form.controls.newsTitle.dirty && form.controls.newsTitle.errors?.minlength) || (form.controls.newsTitle.dirty && form.controls.newsTitle.errors?.maxlength)">Max Length: 50, Min: 5</li>
+          </ul>
+        </div>
+      </div>
+
+<!-- New title -->
+<!-- New Body -->
+  <div class="form-group">
+    <div [ngClass]="{'has-success': form.controls.newsBody.valid, 'has-error': form.controls.newsBody.dirty && form.controls.newsBody.errors }">
+      <textarea name="newsBody" id="newsBody" class="form-control" rows="100" placeholder="Place the body of your article here! Credibility is always sexy ;)" formControlName="newsBody"></textarea>
+      <ul class="form-text">
+        <li *ngIf="form.controls.newsBody.dirty && form.controls.newsBody.errors?.required">This field is required.</li>
+        <li *ngIf="(form.controls.newsBody.dirty && form.controls.newsBody.errors?.minlength) || (form.controls.newsBody.dirty && form.controls.newsBody.errors?.maxlength)">Max Length: 500, Min: 50</li>
+      </ul>
+    </div>
+  </div>
+<!-- New Body -->
+</form>

@@ -15,8 +15,42 @@
     <li class="breadcrumb-item active" aria-current="page">Downloads</li>
   </ol>
 </nav>
-
-<button type="button" data-toggle="modal" data-target="#myModal" name="button" class="btn btn-primary" *ngIf="!validated" (click)="studentValidation()"><i class="now-ui-icons ui-1_check"></i>&nbsp;&nbsp;I am a BULSUAN!</button>
+<div class="section section-nucleo-icons" *ngIf="!validated">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+              <h2 class="title">Nucleo Icons</h2>
+              <h5 class="description">
+                  Now UI Kit comes with 100 custom icons made by our friends from NucleoApp. The official package contains over 2.100 thin icons which are looking great in combination with Now UI Kit Make sure you check all of them and use those that you like the most.
+              </h5>
+              <!-- <div class="nucleo-container">
+<img src="assets/img/nucleo.svg" alt="">
+</div> -->
+              <button type="button" data-toggle="modal" data-target="#myModal" name="button" class="btn btn-primary" *ngIf="!validated" (click)="studentValidation()"><i class="now-ui-icons ui-1_check"></i>&nbsp;&nbsp;I am a BULSUAN!</button>
+              <a href="https://bulsu.edu.ph/downloads/" class="btn btn-primary btn-simple btn-round btn-lg" target="_blank">I want to download BulSU Forms</a>
+          </div>
+          <div class="col-lg-6 col-md-12">
+              <div class="icons-container">
+                  <i class="now-ui-icons ui-1_send"></i>
+                  <i class="now-ui-icons ui-2_like"></i>
+                  <i class="now-ui-icons transportation_air-baloon"></i>
+                  <i class="now-ui-icons text_bold"></i>
+                  <i class="now-ui-icons tech_headphones"></i>
+                  <i class="now-ui-icons emoticons_satisfied"></i>
+                  <i class="now-ui-icons shopping_cart-simple"></i>
+                  <i class="now-ui-icons objects_spaceship"></i>
+                  <i class="now-ui-icons media-2_note-03"></i>
+                  <i class="now-ui-icons ui-2_favourite-28"></i>
+                  <i class="now-ui-icons design_palette"></i>
+                  <i class="now-ui-icons clothes_tie-bow"></i>
+                  <i class="now-ui-icons location_pin"></i>
+                  <i class="now-ui-icons objects_key-25"></i>
+                  <i class="now-ui-icons travel_istanbul"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -64,177 +98,24 @@
 <!-- Modal -->
 
 
-<div class="container-fluid" *ngIf="validated">
-  <div class="card">
-    <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#set1" role="tab" aria-expanded="true">Exec Board</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#set2" role="tab" aria-expanded="false">Renewal</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#set3" role="tab" aria-expanded="false">OSO Search</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#set4" role="tab" aria-expanded="false">RER</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#set5" role="tab" aria-expanded="false">Sample Letters</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#set6" role="tab" aria-expanded="false">Templates</a>
-      </li>
-    </ul>
-    <div class="card-body">
-      <!-- Tab panes -->
-      <div class="tab-content mx-5">
-        <div class="tab-pane active" id="set1" role="tabpanel" aria-expanded="true">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item h6">Cras justo odio
-              <br>
-              <small> Title:
-                <em>Form 1 </em> Size:
-                <em>1MB </em>
-              </small>
-              <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-            <li class="list-group-item h6">Dapibus ac facilisis in
-              <br>
-              <small> Title:
-                <em>Form 1 </em> Size:
-                <em>1MB </em>
-              </small>
-              <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-pane" id="set2" role="tabpanel" aria-expanded="false">
-          <div class="row">
-            <div class="col-sm-4">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item h6">Cras justo odio
-                <br>
-                <small> Title:
-                  <em>Form 1 </em> Size:
-                  <em>1MB </em>
-                </small>
-                <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-                </li>
-                <li class="list-group-item h6">Dapibus ac facilisis in
-                  <br>
-                  <small> Title:
-                    <em>Form 1 </em> Size:
-                    <em>1MB </em>
-                  </small>
-                  <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-                </li>
-              </ul>
-            </div>
-            <div class="col-sm-4">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item h6">Cras justo odio
-                <br>
-                <small> Title:
-                  <em>Form 1 </em> Size:
-                  <em>1MB </em>
-                </small>
-                <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-                </li>
-                <li class="list-group-item h6">Dapibus ac facilisis in
-                  <br>
-                  <small> Title:
-                    <em>Form 1 </em> Size:
-                    <em>1MB </em>
-                  </small>
-                  <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-                </li>
-              </ul>
-
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="set3" role="tabpanel" aria-expanded="false">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item h6">Cras justo odio
-            <br>
-            <small> Title:
-              <em>Form 1 </em> Size:
-              <em>1MB </em>
-            </small>
-            <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-            <li class="list-group-item h6">Dapibus ac facilisis in
-              <br>
-              <small> Title:
-                <em>Form 1 </em> Size:
-                <em>1MB </em>
-              </small>
-              <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-pane" id="set4" role="tabpanel" aria-expanded="false">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item h6">Cras justo odio
-            <br>
-            <small> Title:
-              <em>Form 1 </em> Size:
-              <em>1MB </em>
-            </small>
-            <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-            <li class="list-group-item h6">Dapibus ac facilisis in
-              <br>
-              <small> Title:
-                <em>Form 1 </em> Size:
-                <em>1MB </em>
-              </small>
-              <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-pane" id="set5" role="tabpanel" aria-expanded="false">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item h6">Cras justo odio
-            <br>
-            <small> Title:
-              <em>Form 1 </em> Size:
-              <em>1MB </em>
-            </small>
-            <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-            <li class="list-group-item h6">Dapibus ac facilisis in
-              <br>
-              <small> Title:
-                <em>Form 1 </em> Size:
-                <em>1MB </em>
-              </small>
-              <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-pane" id="set6" role="tabpanel" aria-expanded="false">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item h6">Cras justo odio
-            <br>
-            <small> Title:
-              <em>Form 1 </em> Size:
-              <em>1MB </em>
-            </small>
-            <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-            <li class="list-group-item h6">Dapibus ac facilisis in
-              <br>
-              <small> Title:
-                <em>Form 1 </em> Size:
-                <em>1MB </em>
-              </small>
-              <button class="btn btn-primary btn-simple btn-round float-right" type="button">Download</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container" *ngIf="validated">
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

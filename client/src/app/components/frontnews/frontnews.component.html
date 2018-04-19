@@ -3,7 +3,7 @@
     </div>
     <div class="container">
       <div class="content-center">
-        <h1 class="title">Downloads</h1>
+        <h1 class="title">OSO News</h1>
       </div>
     </div>
   </div>
@@ -15,36 +15,75 @@
       <li class="breadcrumb-item active" aria-current="page">OSO News</li>
     </ol>
   </nav>
-  <div class="container"> 
-    
-<div class="card bg-light border-dark" *ngFor="let frontnews of frontNewsArticles">
-    <div class="card-body">
-        <!-- news title -->
-        <h5 class="card-title">{{ frontnews.title }}</h5>
-        <!-- news body -->
-        <p class="card-text" [froalaView]="frontnews.body" >{{ frontnews.body }}</p>
-      </div>
-      <!-- news footer start -->
-      <div class="card-footer text-muted">
-        <!-- news author -->
-        <strong>Posted by: </strong>{{ frontnews.createdBy }}&nbsp;&nbsp;
-        <!-- news created -->
-        <strong>Date: </strong>{{ frontnews.createdAt | date: 'MMM dd, yyyy' }}
-        
-        <!-- Like and Dislike Button -->
-        <div class="btn-group" role="group">
+  <div class="section section-nucleo-icons">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <h2 class="title">Be Updated BulSUans!</h2>
+                <h5 class="description">
+                    Know the new and upcoming orgs, stunning events and the latest happenings in the campus. Be on the know.
+                </h5>
+                <!-- <div class="nucleo-container">
+  <img src="assets/img/nucleo.svg" alt="">
+</div> -->
+                <!-- <a href="nucleo-icons.html" class="btn btn-primary btn-round btn-lg" target="_blank"></a>
+                <a href="https://nucleoapp.com/?ref=1712" class="btn btn-primary btn-simple btn-round btn-lg" target="_blank">View All Icons</a> -->
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="icons-container">
+                    <i class="now-ui-icons ui-1_send"></i>
+                    <i class="now-ui-icons ui-2_like"></i>
+                    <i class="now-ui-icons transportation_air-baloon"></i>
+                    <i class="now-ui-icons text_bold"></i>
+                    <i class="now-ui-icons tech_headphones"></i>
+                    <i class="now-ui-icons emoticons_satisfied"></i>
+                    <i class="now-ui-icons shopping_cart-simple"></i>
+                    <i class="now-ui-icons objects_spaceship"></i>
+                    <i class="now-ui-icons media-2_note-03"></i>
+                    <i class="now-ui-icons ui-2_favourite-28"></i>
+                    <i class="now-ui-icons design_palette"></i>
+                    <i class="now-ui-icons clothes_tie-bow"></i>
+                    <i class="now-ui-icons location_pin"></i>
+                    <i class="now-ui-icons objects_key-25"></i>
+                    <i class="now-ui-icons travel_istanbul"></i>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- footer end -->
-      <!-- footer end -->
-    <ul class="list-group">
-        <br>
-       <div>
-        <li *ngFor="let comment of frontnews.comments" class="list-group-item">
-          <strong>{{ comment.commentator }}</strong>
-          {{ comment.comment }}
-        </li>
-       </div>
-    </ul>
-  </div>
+    </div>
+</div>
+  <div class="container"> 
+<div class="card-columns">
+    
+  <div class="card bg-light border-dark" *ngFor="let frontnews of frontNewsArticles">
+    <div class="card-header bg-primary text-white "><h3 class="card-title title font-italic pb-3">{{ frontnews.title }}</h3></div>
+    
+    <div class="card-body">
+          <!-- news title -->
+          <!-- news body -->
+          <p class="card-text" [froalaView]="frontnews.body" >{{ frontnews.body }}</p>
+        </div>
+        <!-- news footer start -->
+        <div class="card-footer text-primary">
+          <!-- news author -->
+          <strong>Posted by: </strong>{{ frontnews.createdBy }}&nbsp;&nbsp;
+          <!-- news created -->
+          <strong>Date: </strong>{{ frontnews.createdAt | date: 'MMM dd, yyyy' }}
+          <br>
+        </div>
+        <!-- footer end -->
+        <!-- footer end -->
+
+      <ul class="list-group">
+          <br>
+         <div>
+          <li *ngFor="let comment of frontnews.comments" class="list-group-item  bg-warning">
+            <strong>{{ comment.commentator }}</strong>
+            {{ comment.comment }}
+          </li>
+         </div>
+         <a routerLink="/admin/news">&nbsp;Login to make a comment...</a>
+
+      </ul>
+    </div>
+</div>
   </div>

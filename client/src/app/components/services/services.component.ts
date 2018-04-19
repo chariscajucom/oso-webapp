@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentsService } from '../../myservices/students.service';
+import { OSOFormsService } from '../../myservices/osoForms.service';
 
 @Component({
   selector: 'app-services',
@@ -11,6 +12,7 @@ import { StudentsService } from '../../myservices/students.service';
 })
 export class ServicesComponent implements OnInit {
   
+  osoForms: any;
   form: FormGroup;
   message;
   messageClass;
@@ -19,11 +21,18 @@ export class ServicesComponent implements OnInit {
   processing = false;
   constructor(
     private formBuilder: FormBuilder,
-    private studService: StudentsService
+    private studService: StudentsService,
+    private osoformsService: OSOFormsService
   ) { 
     this.validateStudentForm();
   }
 
+  getallForms(){
+    this.osoformsService.getAllForms().subscribe(data => {
+      this.osoForms = data.pdfforms;
+    });
+  }
+  
   validateStudentForm(){
     this.form = this.formBuilder.group({
       studnum: ['', Validators.compose([
@@ -86,10 +95,13 @@ export class ServicesComponent implements OnInit {
       // this.studService.storeStudentsData(data.token, data.student);
       this.validStudent = false;
       this.validated = true;
-
+      this.getallForms();
      }
    });
   }
+
+  
+
   ngOnInit() {
   }
 

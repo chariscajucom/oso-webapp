@@ -1,0 +1,51 @@
+<div class="container">
+  <h4 class="display">OSO News</h4>
+<div class="row show-hide-message">
+<div [ngClass]="messageClass">
+{{ message }}
+</div>
+</div>
+<!-- <button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="addNewsForm()"><i class="now-ui-icons ui-1_simple-add"></i>&nbsp;&nbsp;New Post</button>
+<button [disabled]="loadingNews" type="button" name="button" class="btn btn-default" *ngIf="!newPost" (click)="reloadNews()"><i class="now-ui-icons loader_refresh"></i>&nbsp;&nbsp;Reload</button>  -->
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="newsTitle">Title</label>
+    <input type="text" class="form-control" id="newsTitle" placeholder="title" formControlName="newsTitle">
+  </div>
+  <div class="form-group">
+    <label for="newsBody">Body</label>
+    <input type="text" class="form-control" id="newsBody" placeholder="Body" formControlName="newsBody">
+  </div>
+
+    <label for="newsPic">Photo</label>
+    <input type="file" id="newsPic" (change)="onFileChange($event)" #fileInput>
+    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
+  
+  <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+</form>
+
+<!-- ALL NEWS CONTENT -->
+  <div class="m-4">
+    <div class="row">
+      <div class="col-sm-6 align-self-stretch">
+        <div class="card d-flex bg-dark text-white">
+          <img class="card-img" src="../../../assets/osomedia/new/05.jpg" alt="Card image">
+          <div class="card-img-overlay">
+            <h2 class="card-title font-italic"><strong>Card Title</strong></h2>
+            <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, enim dolores. Laborum, itaque error? Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro asperiores accusamus impedit nulla eos, in vitae enim ab, doloribus.</p>
+            <p class="card-text">Posted by: <strong>Charis Cajucom</strong></p>
+            <p class="card-text">Date Posted: <strong>March 29, 2018</strong></p>
+            <div class="card-footer align-self-end">
+                <!-- Edit Button -->
+          <a class="btn btn-info mx-1 rounded">Edit</a>
+          <!-- Delete Button -->
+          <a class="btn btn-danger mx-1 rounded" role="button">Delete</a>
+          </div>
+            </div>
+           
+        </div>
+      </div>
+    </div>
+  </div> <!-- ALL NEWS CONTENT -->
+</div>

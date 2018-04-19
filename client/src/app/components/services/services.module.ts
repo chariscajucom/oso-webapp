@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServicesComponent } from './services.component';
 import { ServiceRoutes } from './services.routing';
 import { StudentsService } from '../../myservices/students.service'
+import { OSOFormsService } from '../../myservices/osoForms.service';
 @NgModule({
     imports: [
         CommonModule,
@@ -14,7 +15,7 @@ import { StudentsService } from '../../myservices/students.service'
         RouterModule.forChild(ServiceRoutes)
     ],
     declarations: [ ServicesComponent ],
-    providers: [ StudentsService ]
+    providers: [ StudentsService, OSOFormsService ]
 })
 
 export class ServicesModule {}
