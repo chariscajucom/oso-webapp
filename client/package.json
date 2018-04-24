@@ -24,6 +24,8 @@
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
     "angular-froala-wysiwyg": "^2.8.0",
     "angular2-jwt": "^0.2.3",
+    "animate.css": "^3.6.1",
+    "aos": "^2.2.0",
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",

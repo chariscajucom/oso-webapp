@@ -62,5 +62,8 @@ body {
     font-size: 1.25rem;
     line-height: 1.4;
   }
-
 }
+
+.login-card{
+  background-color: rgba(3, 0, 0, 0.644); 
+} 

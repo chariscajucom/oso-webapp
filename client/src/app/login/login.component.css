@@ -1,0 +1,15 @@
+.page-header{
+    background:url('../../assets/osomedia/new/grp.jpg');
+    position: relative;
+}
+.layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+.login-card{
+    background-color: rgba(3, 0, 0, 0.644); 
+} 

@@ -3175,6 +3175,11 @@ h5,
 
 .media-body h5,
 .h5 {
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+.navbar-transparent .media-body h5,
+.h5 {
     font-size: 3vw;
     line-height: 1.4em;
     margin-bottom: 15px;
@@ -5517,7 +5522,7 @@ Created using IcoMoon - icomoon.io
 
 .page-header {
     height: 100vh;
-    max-height: 1050px;
+    max-height: 1000px;
     padding: 0;
     color: #FFFFFF;
     position: relative;
