@@ -12,6 +12,13 @@ import { OSOFormsService } from '../../myservices/osoForms.service';
 })
 export class ServicesComponent implements OnInit {
   
+  wuforms: any;
+  scforms: any;
+  ouforms: any;
+  sampforms: any;
+  rerforms: any;
+  renewalforms: any;
+  ebforms: any;
   osoForms: any;
   form: FormGroup;
   message;
@@ -25,12 +32,6 @@ export class ServicesComponent implements OnInit {
     private osoformsService: OSOFormsService
   ) { 
     this.validateStudentForm();
-  }
-
-  getallForms(){
-    this.osoformsService.getAllForms().subscribe(data => {
-      this.osoForms = data.pdfforms;
-    });
   }
   
   validateStudentForm(){
@@ -95,14 +96,51 @@ export class ServicesComponent implements OnInit {
       // this.studService.storeStudentsData(data.token, data.student);
       this.validStudent = false;
       this.validated = true;
-      this.getallForms();
      }
    });
   }
 
-  
+  getallEBForms(){
+    this.osoformsService.getallEBForms().subscribe(data => {
+      this.ebforms = data.osoforms;
+    });
+  }
+
+  getallRenewalForms(){
+  this.osoformsService.getallRenewalForms().subscribe(data=>{
+    this.renewalforms = data.osoforms;
+  });
+  }
+
+  getallRERForms(){
+    this.osoformsService.getallRERForms().subscribe(data=>{
+      this.rerforms = data.osoforms;
+  });
+  }
+
+  getallSampleLettersForms(){
+    this.osoformsService.getallSampleLettersForms().subscribe(data=>{
+      this.sampforms = data.osoforms;
+  });
+  }
+  getallOUForms(){
+    this.osoformsService.getallOUForms().subscribe(data=>{
+      this.ouforms = data.osoforms;
+  });
+  }
+  getallSCForms(){
+    this.osoformsService.getallSCForms().subscribe(data=>{
+      this.scforms = data.osoforms;
+  });
+  }
+  getallWUForms(){
+    this.osoformsService.getallWUForms().subscribe(data=>{
+      this.wuforms = data.osoforms;
+  });
+  }
 
   ngOnInit() {
+    this.getallEBForms();
   }
 
 }
