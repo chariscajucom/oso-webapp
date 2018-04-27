@@ -131,22 +131,22 @@
                 <p class="description"><strong>Email your friendly neighborhood OSO Staff now!</strong></p>
                 <div class="row">
                     <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-                        <form>
+                        <form [formGroup]="form" name="contactForm" (ngSubmit)="onFormSubmit()">
                             <div class="col-md-6 col-lg-12" data-aos="flip-up">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Name" class="form-control text-light" />
+                                    <input type="text" id="name" name="name" value="" placeholder="Name" class="form-control text-light" formControlName="name"/>
                                 </div>
-                        </div>
+                           </div>
                         <div class="col-md-6 col-lg-12" data-aos="flip-up">
                                 <div class="form-group">
-                                    <input type="text" value="" placeholder="Email" class="form-control text-light"/>
+                                    <input type="email" id="email" name="email" value="" placeholder="Email" class="form-control text-light" formControlName="email"/>
                                 </div>
                         </div>
-                        <div class="textarea-container m-5 " data-aos="flip-up">
-                            <textarea class="form-control text-light"  name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
+                        <div class="textarea-container m-5 form-group" data-aos="flip-up">
+                            <textarea class="form-control text-light"  name="message" id="message" rows="4" cols="80" placeholder="Type a message..." formControlName="message"></textarea>
                         </div>
-                        <div class="send-button">
-                            <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg animate infinite wobble">Send Message</a>
+                        <div class="send-button form-group">
+                            <button type="submit" class="btn btn-primary btn-round btn-block btn-lg animate infinite wobble">Send Message</button>
                         </div>
                         </form>
                     </div>

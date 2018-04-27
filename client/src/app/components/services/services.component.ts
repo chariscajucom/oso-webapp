@@ -62,7 +62,7 @@ export class ServicesComponent implements OnInit {
   }
 
   numericValidator(controls){
-    const regExp = new RegExp(/^[0-9]*$/);
+    const regExp = new RegExp(/^[0-9-]*$/);
     if(regExp.test(controls.value)){
 			return null;
 		} else {
