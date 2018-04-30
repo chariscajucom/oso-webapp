@@ -62,7 +62,7 @@ export class ServicesComponent implements OnInit {
   }
 
   numericValidator(controls){
-    const regExp = new RegExp(/^[0-9-]*$/);
+    const regExp = new RegExp(/^[0-9]*$/);
     if(regExp.test(controls.value)){
 			return null;
 		} else {
@@ -80,7 +80,7 @@ export class ServicesComponent implements OnInit {
     // console.log(this.form.get('studname').value);
     this.processing = true;
     this.disableFormvalidateStudentForm();
-
+    
     const student = {
       studnum: this.form.get('studnum').value,
       studname: this.form.get('studname').value

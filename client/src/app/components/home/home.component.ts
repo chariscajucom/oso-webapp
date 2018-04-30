@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { contactusService } from '../../myservices/contactUs.service';
+import { FrontNewsService } from '../../myservices/frontnews.service';
 
 declare var swal: any;
 declare var $: any;
@@ -13,10 +14,12 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
 
+	frontNewsArticles: any;
 	form: FormGroup;
 	constructor(
 		private formBuilder : FormBuilder,
-		private contactusservice : contactusService 
+		private contactusservice : contactusService,
+		private frontnewsService : FrontNewsService
 	) {
 		this.createForm();
 	 }
@@ -47,7 +50,15 @@ export class HomeComponent implements OnInit {
 		 });
 	 }
 
+
+	 getallFrontNews(){
+		this.frontnewsService.getAllFrontNews().subscribe(data => {
+		  this.frontNewsArticles = data.frontnews;
+		});
+	  }
+
   ngOnInit() {
+	this.getallFrontNews();
   }
 
 }
