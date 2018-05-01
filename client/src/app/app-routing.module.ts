@@ -5,13 +5,11 @@ import { RegisterComponent } from './register/register.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guard/auth-guard.service';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 export const AppRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
-    { 
-      path: 'login' , 
-      component : LoginComponent
-    },
+    {  path: 'login' ,  component : LoginComponent  },
     { path: 'register' , component : RegisterComponent },
     {
       path: 'admin',
@@ -24,6 +22,7 @@ export const AppRoutes: Routes = [
         { path: 'announcement', loadChildren: './admin/announcement/announcement.module#AnnouncementModule'},
         { path: 'activities', loadChildren: './admin/activities/activities.module#ActivitiesModule'},
         { path: 'pdf-forms', loadChildren: './admin/pdf-forms/pdforms.module#PDFModule'},
+        { path: 'organizations', loadChildren: './admin/organizations/organization.module#OrganizationModule'},
       ]
     },
     {
@@ -37,5 +36,5 @@ export const AppRoutes: Routes = [
       { path: 'frontnews', loadChildren: './components/frontnews/frontnews.module#FrontNewsModule' }
       ]
     },
-    { path: '**' , redirectTo : '' }
+    { path: '**' , component : PageErrorComponent }
 ];

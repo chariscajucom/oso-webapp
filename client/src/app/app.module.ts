@@ -29,6 +29,8 @@ import { AuthGuard } from './guard/auth-guard.service';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageErrorComponent } from './page-error/page-error.component';
+import { StudOrgsService } from './myservices/studorgs.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AdminComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    PageErrorComponent
   ],
   imports: [
     FroalaEditorModule.forRoot(), 
@@ -55,7 +58,7 @@ import { FooterComponent } from './components/footer/footer.component';
     // BsModalModule 
 
   ],
-  providers: [ AuthService, StudentsService, AuthGuard, NewsService ],
+  providers: [ AuthService, StudentsService, AuthGuard, NewsService, StudOrgsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

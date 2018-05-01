@@ -150,7 +150,7 @@ module.exports = (router) => {
    });
    
    // route to get user's data
-   router.get('/sidebar', (req, res) => {
+   router.get('/currentUser', (req, res) => {
        // Search for user in database
        User.findOne({ _id: req.decoded.userId }).select('username').exec((err, user) => {
          // Check if error connecting
