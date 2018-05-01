@@ -11,6 +11,7 @@ const config = require('./config/database');
 
 const studvalidation = require('./routes/studvalidation')(router);
 const osoforms = require('./routes/osoforms')(router);
+const osoprimer = require('./routes/osoprimer')(router);
 const studorgs = require('./routes/studorgs')(router);
 const frontnews = require('./routes/frontnews')(router);
 const pdfforms = require('./routes/pdfforms')(router);
@@ -48,6 +49,7 @@ app.use(function (req, res, next) {
   });
 app.use('/studorgs', studorgs);
 app.use('/osoforms', osoforms);
+app.use('/osoprimer' , osoprimer);
 app.use('/studvalidation', studvalidation);
 app.use('/frontnews', frontnews);
 app.use('/pdfforms', pdfforms);
