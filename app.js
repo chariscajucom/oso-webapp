@@ -14,6 +14,7 @@ const osoforms = require('./routes/osoforms')(router);
 const studorgs = require('./routes/studorgs')(router);
 const frontnews = require('./routes/frontnews')(router);
 const pdfforms = require('./routes/pdfforms')(router);
+const emailwebsite = require('./routes/emailwebsite')(router);
 const authentication = require('./routes/authentication')(router);
 const news = require('./routes/news')(router);
 
@@ -50,6 +51,7 @@ app.use('/osoforms', osoforms);
 app.use('/studvalidation', studvalidation);
 app.use('/frontnews', frontnews);
 app.use('/pdfforms', pdfforms);
+app.use('/emailwebsite', emailwebsite);
 app.use('/authentication', authentication);
 app.use('/news', news);
 

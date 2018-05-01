@@ -3,7 +3,7 @@ import { StudOrgsService } from '../../myservices/studorgs.service';
 @Component({
   selector: 'app-studorgs',
   templateUrl: './studorgs.component.html',
-  styleUrls: ['../../../assets/css/now-ui-kit.css']
+  styleUrls: ['../../../assets/css/now-ui-kit.css', './studorgs.component.css']
 
 })
 export class StudorgsComponent implements OnInit {

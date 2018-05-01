@@ -1,0 +1,13 @@
+.nav-link:hover {
+    background-color: #f96332;
+}
+.nav-link:hover {
+    color: white;
+}
+a .nav-link:visited {
+    background-color: #f96332;
+    color: white;
+}
+ /* .orange-text {
+     color: #f96332;
+ } */
