@@ -9,8 +9,8 @@
             <img class="first-slide" src="./assets/osomedia/osomedia/balangayan.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h2>A Good Leader is A Good Follower</h2>
-                <p>A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves. </p>
+                <!-- <h2>A Good Leader is A Good Follower</h2>
+                <p>A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves. </p> -->
                 <p><a class="btn btn-lg btn-primary animated  bounce" routerLink = '/services' role="button">Go to Forms</a></p>
               </div>
             </div>
@@ -19,8 +19,8 @@
             <img class="second-slide" src="./assets/osomedia/osomedia/03.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h2>Organizations in Action</h2>
-                <p>Did you know that BulSU has over 127 diverse organizations? That's over a hundred and twenty-seven opportunities for lasting friendships and learning experiences!</p>
+                <!-- <h2>Organizations in Action</h2>
+                <p>Did you know that BulSU has over 127 diverse organizations? That's over a hundred and twenty-seven opportunities for lasting friendships and learning experiences!</p> -->
                 <p><a class="btn btn-lg btn-primary animated  swing" routerLink = '/studorgs' role="button">Learn more</a></p>
               </div>
             </div>
@@ -29,8 +29,8 @@
             <img class="third-slide" src="./assets/osomedia/osomedia/08.jpg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h2>Formality is everything</h2>
-                <p>The Office of the Student Organizations have a wide array of forms and primers ready for downloading and for a quick instruction or a refresher on filling up the forms</p>
+                <!-- <h2>Formality is everything</h2>
+                <p>The Office of the Student Organizations have a wide array of forms and primers ready for downloading and for a quick instruction or a refresher on filling up the forms</p> -->
                 <p><a class="btn btn-lg btn-primary animated  pulse" routerLink='/about' role="button">Go to about</a></p>
               </div>
             </div>
@@ -57,33 +57,48 @@
                     </div>
                 </div>
                 <div class="separator separator-primary"></div>
-                <div class="section-story-overview">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="image-container image-left" style="background-image: url('../assets/osomedia/osomedia/suc317.jpg')" data-aos="flip-right">
-                                <!-- First image on the left side -->
-                                <p class="blockquote blockquote-primary">"If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals."
-                                    <br>
-                                    <br>
-                                    <small>-Sirius Black, Harry Potter and the Goblet of Fire</small>
-                                </p>
-                            </div>
-                            <!-- Second image on the left side of the article -->
-                            <div class="image-container" style="background-image: url('../assets/osomedia/new/grp.jpg'); background-size: cover;" data-aos="flip-down"></div>
+                <div class="section-story-overview ">
+                        <h2 class="title text-center" data-aos="flip-left">See what the fuss is all about</h2>
+                        <h5 class="description text-center" data-aos="flip-left">PLEASE ENTER A DESCRIPTION HERE</h5>
+                        <a routerLink="/frontnews" class="btn btn-primary btn-simple btn-round btn-lg col-12 mb-5" target="_blank">See more</a>
+                        <div class="row" style="width: 1200px;">
+                    <div class="col-sm-6 card-deck"  *ngFor="let frontnews of frontNewsArticles; let i=index">
+                    <div class="card border-dark" data-aos="fade-up">
+                        <div *ngIf="i<2">
+                                    <div class="card-header bg-primary text-white "><h3 class="card-title title font-italic pb-3">{{ frontnews.title }}</h3></div>
+                        
+                                    <div class="card-body">
+                                          <!-- news title -->
+                                          <!-- news body -->
+                                          <p class="card-text" [froalaView]="frontnews.body" >{{ frontnews.body }}</p>
+                                        </div>
+                                        <!-- news footer start -->
+                                        <div class="card-footer text-primary">
+                                          <!-- news author -->
+                                          <strong>Posted by: </strong>{{ frontnews.createdBy }}&nbsp;&nbsp;
+                                          <!-- news created -->
+                                          <strong>Date: </strong>{{ frontnews.createdAt | date: 'MMM dd, yyyy' }}
+                                          <br>
+                                        </div>
+                                        <!-- footer end -->
+                                        <!-- footer end -->
+                                
+                                      <ul class="list-group">
+                                          <br>
+                                         <div>
+                                          <li *ngFor="let comment of frontnews.comments" class="list-group-item  bg-warning">
+                                            <strong>{{ comment.commentator }}</strong>
+                                            {{ comment.comment }}
+                                          </li>
+                                         </div>
+                                         <a routerLink="/admin/news">&nbsp;Login to make a comment...</a>
+                                
+                                      </ul>
+                            
+                        </div> 
                         </div>
-                        <div class="col-md-5">
-                            <!-- First image on the right side, above the article -->
-                            <div class="image-container image-right" style="background-image: url('../assets/osomedia/osomedia/poster.jpg')" data-aos="flip-up"></div>
-                            <h3>Great moments are born from great opportunity</h3>
-                            <p>To officially open the celebration, the event started with the entrance of colors led by the BulSU ROTC Unit, followed by the singing of the National Anthem and BulSU Hymn headed by the very talended people from BulSU Saring Himig. The program was graced by the administration officials headed by BulSU President, Dr. Cecilia Gascon, vice president, deans and directors, and students.
-                            </p>
-                            <p>
-                                President Gascon thanked all the officials, faculty and students for the love and support that they have poured out for BulSU. She added that it is through their hard work and fierce loyalty to the institution that our University has come this far, and it is through these same loyalty and dedications that the university will soar to superior heights.
-                            </p>
-                            <p>Dr. Jaime P. Pulumbarit, the Vice President for Administration, Finance and Resource Generation, took charge in the introduction of the guest speaker, Gov. Wilhelmino M. Sy-Alvarado. The Governor stated that our university should continue to produce more competitive graduates that would help in the development of our province, especially the country. He articulated that he admires teachers and officials in this institution because of their unending dedication.
-                            </p>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -94,8 +109,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="team-player">
-                                <img src="../assets/osomedia/admins/audit.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Alexandra B. Avendano</h4>
+                                <img src="../assets/osomedia/admins/sherwin.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                <h4 class="title">Sherwin Parinas</h4>
                                 <p class="category text-primary">Head, Committee on Audit</p>
                                 <p class="description">An audit committee is a selected number of members of a company's board of directors whose responsibilities include helping auditors remain independent of management.</p>
                                 <a href="https://www.facebook.com/alexbeatrizz?ref=br_rs" class="btn btn-primary btn-icon btn-round"><i class="fa fa-facebook-square"></i></a>
@@ -103,7 +118,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-player">
-                                <img src="../assets/osomedia/admins/roy.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised" data-aos="flip-up">
+                                 <img src="../assets/osomedia/admins/Roy.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                 <h4 class="title">Mr. Joseph Roy F. Celestino</h4>
                                 <p class="category text-primary">Head of Student Organizations</p>
                                 <p class="description">Office manager responsibilities include scheduling meetings and appointments, making office supplies arrangements, greeting visitors and providing general administrative support to our employees. </p>
@@ -113,9 +128,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-player">
-                                <img src="../assets/osomedia/admins/interfaith.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                                <h4 class="title">Caryle Kim DG. Lugo</h4>
-                                <p class="category text-primary">Head, Commitee on Inter-faith</p>
+                                <img src="../assets/osomedia/admins/almira.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                <h4 class="title">Almira G. Estrella</h4>
+                                <p class="category text-primary">Secretary of OSO</p>
                                 <p class="description">Interfaith dialogue refers to cooperative, constructive, and positive interaction between people of different religious traditions (i.e., "faiths") and/or spiritual or humanistic beliefs, at both the individual and institutional levels.</p>
                             </div>
                         </div>

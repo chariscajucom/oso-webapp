@@ -10,11 +10,12 @@ module.exports = (router) => {
         if (!studorgs) {
           res.json({ success: false, message: 'No news found!' });
         } else {
+          // StudOrgs.find({ "orgtype": "Academics" }).count();
           res.json ({ success: true, studorgs: studorgs });
         }
       }
     });
-  });
+  }); 
 
   router.get('/allFratOrgs', (req, res) =>{
     StudOrgs.find({ "orgtype": "Fraternities"}, (err, studorgs) =>{

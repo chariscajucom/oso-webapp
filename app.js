@@ -47,6 +47,7 @@ app.use(function (req, res, next) {
 	res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
 	next();
   });
+app.use('/osoprimer', osoprimer);
 app.use('/studorgs', studorgs);
 app.use('/osoforms', osoforms);
 app.use('/osoprimer' , osoprimer);
