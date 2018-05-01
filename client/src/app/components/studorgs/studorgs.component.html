@@ -20,9 +20,11 @@
 						<!-- Organizations' List -->
 						<div class="sidebar-sticky">
 								<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-									<span>UNIVERSITY WIDE</span></h6>
+									<span class="orange-text">UNIVERSITY WIDE</span></h6>
 								<ul class="nav flex-column" id="myTab" role="tablist">
-								  <li class="nav-item"><a  (click)="getallAcadOrgs()" class="nav-link active" id="acad-tab" data-toggle="tab" href="#acad" role="tab" aria-controls="acad" aria-selected="true"><i class="now-ui-icons business_bank"></i> Academics</a></li>
+
+								  <li class="nav-item"><a (click)="getallAcadOrgs()" class="nav-link active" id="acad-tab" data-toggle="tab" href="#acad" role="tab" aria-controls="acad" aria-selected="true"><i class="now-ui-icons business_bank"></i> Academics</a></li>
+
 								  <li class="nav-item"><a  (click)="getallFratOrgs()" class="nav-link" id="frat-tab" data-toggle="tab" href="#frat" role="tab" aria-controls="frat" aria-selected="true"><i class="now-ui-icons business_bank"></i> Fraternities</a></li>
 								  <li class="nav-item"><a (click)="getallEnvOrgs()" class="nav-link" id="envi-tab" data-toggle="tab" href="#envi" role="tab" aria-controls="envi" aria-selected="true"><i class="now-ui-icons business_bank"></i> Environmental</a></li>
 
@@ -32,7 +34,7 @@
 								  <li class="nav-item"><a (click)="getallSpiritOrgs()" class="nav-link" id="rel-tab" data-toggle="tab" href="#rel" role="tab" aria-controls="rel" aria-selected="true"><i class="now-ui-icons business_bank"></i> Spiritual and Religious</a></li>
 								</ul>
 								<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-								  <span>CAMPUS-WIDE</span></h6>
+								  <span class="orange-text">CAMPUS-WIDE</span></h6>
 								<ul class="nav flex-column mb-2">
 									<li class="nav-item"><a (click)="getallBustosOrgs()" class="nav-link" id="bustos-tab" data-toggle="tab" href="#bustos" role="tab" aria-controls="bustos" aria-selected="true"><i class="now-ui-icons business_bank"></i> Bustos</a></li>
 									<li class="nav-item"><a (click)="getallHagonoyOrgs()" class="nav-link" id="hagonoy-tab" data-toggle="tab" href="#hagonoy" role="tab" aria-controls="hagonoy" aria-selected="true"><i class="now-ui-icons business_bank"></i> Hagonoy</a></li>
@@ -40,7 +42,7 @@
 									<li class="nav-item"><a (click)="getallSarmientoOrgs()" class="nav-link " id="sarmiento-tab" data-toggle="tab" href="#sarmiento" role="tab" aria-controls="sarmiento" aria-selected="true"><i class="now-ui-icons business_bank"></i> Sarmiento</a></li>
 								</ul>
 								<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-										<span>MAIN CAMPUS</span></h6>
+										<span class="orange-text">MAIN CAMPUS</span></h6>
 									  <ul class="nav flex-column mb-2">
 										<li class="nav-item"><a (click)="getallCAFAOrgs()" class="nav-link " id="cafa-tab" data-toggle="tab" href="#cafa" role="tab" aria-controls="cafa" aria-selected="true"><i class="now-ui-icons business_bank"></i> CAFA</a></li>
 										<li class="nav-item"><a (click)="getallCALOrgs()" class="nav-link " id="cal-tab" data-toggle="tab" href="#cal" role="tab" aria-controls="cal" aria-selected="true"><i class="now-ui-icons business_bank"></i> CAL</a></li>
@@ -65,9 +67,9 @@
 									</div>
 								</nav>
 						<div class="tab-content">
-							<div class="tab-pane active" id="acad" role="tabpanel" aria-labelledby="acad-tab">
+							<div class="tab-pane active"  id="acad" role="tabpanel" aria-labelledby="acad-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let acads of acadsStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let acads of acadsStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ acads.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -85,9 +87,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="frat" role="tabpanel" aria-labelledby="frat-tab">
+							<div class="tab-pane"  id="frat" role="tabpanel" aria-labelledby="frat-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let frats of fratsStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let frats of fratsStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ frats.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -105,9 +107,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="envi" role="tabpanel" aria-labelledby="envi-tab">
+							<div class="tab-pane"  id="envi" role="tabpanel" aria-labelledby="envi-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let env of envStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let env of envStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ env.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -125,9 +127,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="life" role="tabpanel" aria-labelledby="life-tab">
+							<div class="tab-pane"  id="life" role="tabpanel" aria-labelledby="life-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let life of lifeStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let life of lifeStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ life.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -145,9 +147,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="poli" role="tabpanel" aria-labelledby="poli-tab">
+							<div class="tab-pane"  id="poli" role="tabpanel" aria-labelledby="poli-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let poli of poliStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let poli of poliStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ poli.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -167,7 +169,7 @@
 							</div>
 							<div class="tab-pane" id="socciv" role="tabpanel" aria-labelledby="socciv-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let socciv of socioStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let socciv of socioStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ socciv.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -185,9 +187,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="rel" role="tabpanel" aria-labelledby="rel-tab">
+							<div class="tab-pane"  id="rel" role="tabpanel" aria-labelledby="rel-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let rel of spiritStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let rel of spiritStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ rel.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -205,9 +207,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="bustos" role="tabpanel" aria-labelledby="bustos-tab">
+							<div class="tab-pane"  id="bustos" role="tabpanel" aria-labelledby="bustos-tab">
 								<div class="row">
-									<div class="col-sm" *ngFor="let bc of bustosStudOrgs">
+									<div class="card-deck col-sm-4" *ngFor="let bc of bustosStudOrgs" data-aos="flip-up">
 											<div class="card" style="width: 18rem;">
 													<img class="card-img-top" src="{{ bc.orglogo }}" alt="Card image cap">
 													<div class="card-body">
@@ -225,9 +227,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="hagonoy" role="tabpanel" aria-labelledby="hagonoy-tab">
+							<div class="tab-pane"  id="hagonoy" role="tabpanel" aria-labelledby="hagonoy-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let hc of hagonoyStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let hc of hagonoyStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ hc.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -245,9 +247,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="meneses" role="tabpanel" aria-labelledby="meneses-tab">
+							<div class="tab-pane"  id="meneses" role="tabpanel" aria-labelledby="meneses-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let mc of menesesStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let mc of menesesStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ mc.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -265,9 +267,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="sarmiento" role="tabpanel" aria-labelledby="sarmiento-tab">
+							<div class="tab-pane"  id="sarmiento" role="tabpanel" aria-labelledby="sarmiento-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let sc of sarmientoStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let sc of sarmientoStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ sc.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -285,9 +287,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="cafa" role="tabpanel" aria-labelledby="cafa-tab">
+							<div class="tab-pane"  id="cafa" role="tabpanel" aria-labelledby="cafa-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cafa of cafaStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cafa of cafaStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cafa.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -305,9 +307,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="cal" role="tabpanel" aria-labelledby="cal-tab">
+							<div class="tab-pane"  id="cal" role="tabpanel" aria-labelledby="cal-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cal of calStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cal of calStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cal.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -325,9 +327,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="cba" role="tabpanel" aria-labelledby="cba-tab">
+							<div class="tab-pane"  id="cba" role="tabpanel" aria-labelledby="cba-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cba of cbaStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cba of cbaStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cba.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -345,9 +347,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="ccje" role="tabpanel" aria-labelledby="ccje-tab">
+							<div class="tab-pane"  id="ccje" role="tabpanel" aria-labelledby="ccje-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let ccje of ccjeStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let ccje of ccjeStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ ccje.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -365,9 +367,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="coed" role="tabpanel" aria-labelledby="coed-tab">
+							<div class="tab-pane"  id="coed" role="tabpanel" aria-labelledby="coed-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let coed of coedStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let coed of coedStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ coed.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -385,9 +387,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="coe" role="tabpanel" aria-labelledby="coe-tab">
+							<div class="tab-pane"  id="coe" role="tabpanel" aria-labelledby="coe-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let coe of coeStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let coe of coeStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ coe.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -405,9 +407,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="che" role="tabpanel" aria-labelledby="che-tab">
+							<div class="tab-pane"  id="che" role="tabpanel" aria-labelledby="che-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let che of cheStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let che of cheStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ che.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -427,7 +429,7 @@
 							</div>
 							<div class="tab-pane" id="cit" role="tabpanel" aria-labelledby="cit-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cit of citStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cit of citStudOrgs"  data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cit.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -445,9 +447,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="cict" role="tabpanel" aria-labelledby="cict-tab">
+							<div class="tab-pane"  id="cict" role="tabpanel" aria-labelledby="cict-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cict of cictStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cict of cictStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cict.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -465,9 +467,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="con" role="tabpanel" aria-labelledby="con-tab">
+							<div class="tab-pane"  id="con" role="tabpanel" aria-labelledby="con-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let con of conStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let con of conStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ con.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -485,9 +487,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="copers" role="tabpanel" aria-labelledby="copers-tab">
+							<div class="tab-pane"  id="copers" role="tabpanel" aria-labelledby="copers-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let copers of copersStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let copers of copersStudOrgs" data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ copers.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -507,7 +509,7 @@
 							</div>
 							<div class="tab-pane" id="cs" role="tabpanel" aria-labelledby="cs-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cs of csStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cs of csStudOrgs"  data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cs.orglogo }}" alt="Card image cap">
 														<div class="card-body">
@@ -527,7 +529,7 @@
 							</div>
 							<div class="tab-pane" id="cssp" role="tabpanel" aria-labelledby="cssp-tab">
 								<div class="row">
-										<div class="col-sm" *ngFor="let cssp of csspStudOrgs">
+										<div class="card-deck col-sm-4" *ngFor="let cssp of csspStudOrgs"  data-aos="flip-up">
 												<div class="card" style="width: 18rem;">
 														<img class="card-img-top" src="{{ cssp.orglogo }}" alt="Card image cap">
 														<div class="card-body">

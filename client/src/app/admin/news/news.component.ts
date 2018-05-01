@@ -36,13 +36,13 @@ export class NewsComponent implements OnInit {
       title: ['', Validators.compose([
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(50),
+        Validators.maxLength(100),
         this.alphaNumericValidator
       ])],
       body: ['', Validators.compose([
 						Validators.required,
 						Validators.minLength(15),
-						Validators.maxLength(500)
+						Validators.maxLength(1000)
 				])]
     })
   }

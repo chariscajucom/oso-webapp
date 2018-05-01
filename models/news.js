@@ -7,7 +7,7 @@ let titleLengthChecker = (title) => {
   if (!title) {
     return false;
   }  else {
-    if (title.length < 5 || title.length > 50){
+    if (title.length < 5 || title.length > 100){
       return false;
     } else{
       return true;
@@ -39,7 +39,7 @@ let bodyLengthChecker = (body) => {
   if (!body) {
     return false;
   } else {
-    if (body.length < 15 || body.length > 500 ) {
+    if (body.length < 15 || body.length > 1000 ) {
       return false;
     } else {
       return true;

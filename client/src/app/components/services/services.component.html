@@ -26,7 +26,7 @@
         <!-- <div class="nucleo-container">
 <img src="assets/img/nucleo.svg" alt="">
 </div> -->
-        <button type="button" data-toggle="modal" data-target="#myModal" name="button" class="btn btn-primary animated infinite tada" *ngIf="!validated"
+        <button type="button" data-toggle="modal" data-target="#myModal" name="button" class="btn btn-primary animated tada" *ngIf="!validated"
           (click)="studentValidation()">
           <i class="now-ui-icons ui-1_check"></i>&nbsp;&nbsp;I am a BULSUAN!</button>
         <a href="https://bulsu.edu.ph/downloads/" class="btn btn-primary btn-simple btn-round btn-lg" target="_blank">I want to download BulSU Forms</a>
@@ -34,20 +34,20 @@
       <div class="col-lg-6 col-md-12">
         <div class="icons-container">
           <i class="now-ui-icons ui-1_send"></i>
-          <i class="now-ui-icons ui-2_like"></i>
+          <i class="now-ui-icons ui-2_like animated infinite flipOutY"></i>
           <i class="now-ui-icons transportation_air-baloon"></i>
           <i class="now-ui-icons text_bold"></i>
-          <i class="now-ui-icons tech_headphones"></i>
+          <i class="now-ui-icons tech_headphones animated infinite flipInY"></i>
           <i class="now-ui-icons emoticons_satisfied"></i>
           <i class="now-ui-icons shopping_cart-simple"></i>
-          <i class="now-ui-icons objects_spaceship"></i>
+          <i class="now-ui-icons objects_spaceship animated infinite flipOutY"></i>
           <i class="now-ui-icons media-2_note-03"></i>
           <i class="now-ui-icons ui-2_favourite-28"></i>
-          <i class="now-ui-icons design_palette"></i>
+          <i class="now-ui-icons design_palette animated infinite flipInY"></i>
           <i class="now-ui-icons clothes_tie-bow"></i>
-          <i class="now-ui-icons location_pin"></i>
+          <i class="now-ui-icons location_pin animated infinite flipOutY"></i>
           <i class="now-ui-icons objects_key-25"></i>
-          <i class="now-ui-icons travel_istanbul"></i>
+          <i class="now-ui-icons travel_istanbul animated infinite flipInY"></i>
         </div>
       </div>
     </div>
@@ -103,312 +103,131 @@
   <div class="row pt-5">
     <div class="col-sm-8">
       <div class="tab-content" id="v-pills-tabContent">
+        <!-- EB Application Form -->
         <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Executive Board Application Form</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/EB Application Form/ebf1.pdf"  target="_blank" class="btn btn-primary">Download</a>
+            <div class="row">
+              <div class="card-deck col-sm"  *ngFor="let eb of ebforms">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="{{ eb.form_thumb }}" alt="PDF Thumbnail">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ eb.form_name }}</h5>
+                  </div>  
+                  <div class="card-footer"><a href="{{ eb.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                  </div>
+              </div>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Executive Board Job Description and Function</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/EB Application Form/ebf2.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-        </div>
+        </div><!-- EB Application Form -->
+        <!-- For Renewal -->
         <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
-          <!-- card -->
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">STUDENT ORGANIZATION RECOGNITION
-              </h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf1.pdf"  target="_blank" class="btn btn-primary">Download</a>
+          <div class="row">
+            <div class="card-deck col-sm"  *ngFor="let renewal of renewalforms">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ renewal.form_thumb }}" alt="PDF Thumbnail">
+                <div class="card-body">
+                  <h5 class="card-title">{{ renewal.form_name }}</h5>
+                </div> 
+                <div class="card-footer"><a href="{{ renewal.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
             </div>
           </div>
-          <!-- end card -->
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">List of Officers</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf2.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Officer's Profile</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf3.pdf" target="_blank"  class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Adviser's Personal Information</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf4.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Membership Form</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf5.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Accomplishment Report</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf6.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Membership List</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf7.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Membership List</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf8.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Activity Proposal Form</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf9.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Financial Report</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf10.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Acceptance Letter of Organization's Adivser</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf11.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Letter of Intent for New Organization</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/For Renewal/renewf12.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
-
-        </div>
+        </div><!-- For Renewal -->
+        <!-- RER -->
         <div class="tab-pane fade" id="v-pills-3" role="tabpanel"  target="_blank" aria-labelledby="v-pills-3-tab">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Reimbursement Expense Receipt</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/RER/RER.pdf"  target="_blank" class="btn btn-primary">Download</a>
+          <div class="row">
+            <div class="card-deck col-sm"  *ngFor="let rer of rerforms">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ rer.form_thumb }}" alt="PDF Thumbnail">
+                <div class="card-body">
+                  <h5 class="card-title">{{ rer.form_name }}</h5>
+                </div> 
+                <div class="card-footer"><a href="{{ rer.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Reimbursement Expenses Receipt Samples</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/RER/Sample RER.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
+        </div> <!-- RER -->
 
-        </div>
-
-
+        <!-- Sample Letters -->
         <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Sample Letter Intent for New Organization</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/Sample Letters/main.pdf"  target="_blank" class="btn btn-primary">Download</a>
+          <div class="row">
+            <div class="card-deck col-sm"  *ngFor="let samp of sampforms">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ samp.form_thumb }}" alt="PDF Thumbnail">
+                <div class="card-body">
+                  <h5 class="card-title">{{ samp.form_name }}</h5>
+                </div> 
+                <div class="card-footer"><a href="{{ samp.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Sample Letters Intent for the Activity Outside the University</h5>
-              <p class="card-text">Description...</p>
-              <a href="../assets/Forms/Sample Letters/other.pdf"  target="_blank" class="btn btn-primary">Download</a>
-            </div>
-          </div>
+        </div><!-- Sample Letters -->
 
-        </div>
-
+        <!-- Compliance Checklist -->
         <div class="tab-pane fade" id="v-pills-5" role="tabpanel"  target="_blank" aria-labelledby="v-pills-5-tab">
-
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="a-tab" data-toggle="tab" href="#a" role="tab" aria-controls="a" aria-selected="true">Outside University</a>
+              <a class="nav-link active" id="a-tab" data-toggle="tab" href="#a" role="tab" aria-controls="a" aria-selected="true" (click)="getallOUForms()">Outside University</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="b-tab" data-toggle="tab" href="#b" role="tab" aria-controls="b" aria-selected="false">Satelite Campus-Compliance Checklist</a>
+              <a class="nav-link" id="b-tab" data-toggle="tab" href="#b" role="tab" aria-controls="b" aria-selected="false" (click)="getallSCForms()">Satelite Campus-Compliance Checklist</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="c-tab" data-toggle="tab" href="#c" role="tab" aria-controls="c" aria-selected="false">Within University</a>
+              <a class="nav-link" id="c-tab" data-toggle="tab" href="#c" role="tab" aria-controls="c" aria-selected="false" (click)="getallWUForms()">Within University</a>
             </li>
           </ul>
 
           <div class="tab-content" id="myTabContent">
+            <!-- Outside University -->
             <div class="tab-pane fade show active" id="a" role="tabpanel" aria-labelledby="a-tab">
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Activity Proposal Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/OUTSIDE UNIVERSITY/02F1 activity proposal form.pdf"  target="_blank" class="btn btn-primary">Download</a>
+              <div class="row">
+                <div class="card-deck col-sm"  *ngFor="let ou of ouforms">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ ou.form_thumb }}" alt="PDF Thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ ou.form_name }}</h5>
+                    </div> 
+                    <div class="card-footer"><a href="{{ ou.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Adviser/Faculty Companion Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/OUTSIDE UNIVERSITY/02F2  adviser companion form_001.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Certification from the Dean / Adviser</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/OUTSIDE UNIVERSITY/02F3-4 dean and advise certification_1.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Parental Consent Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/OUTSIDE UNIVERSITY/02F5 parental consent form_001.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">List of Participants</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/OUTSIDE UNIVERSITY/02F6 List of Participants_1.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Checklist for Requirements for Extramural Activities of Student Organizations</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/OUTSIDE UNIVERSITY/BulSU-OP-OSD-01F1.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-
-            </div>
-
-
+            </div>  <!-- Outside University -->
+            <!-- Satellite Campus-Compliance Checklist -->
             <div class="tab-pane fade" id="b" role="tabpanel" aria-labelledby="b-tab">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Activity Proposal Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/satellite campus- compliance checklist/02F1 activity proposal form (1).pdf"  target="_blank"
-                    class="btn btn-primary">Download</a>
+              <div class="row">
+                <div class="card-deck col-sm"  *ngFor="let sc of scforms">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ sc.form_thumb }}" alt="PDF Thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ sc.form_name }}</h5>
+                    </div> 
+                    <div class="card-footer"><a href="{{ sc.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
                 </div>
               </div>
+            </div><!-- Satellite Campus-Compliance Checklist -->
 
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Adviser/Faculty Companion Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/satellite campus- compliance checklist/02F2  adviser companion form_001 (1).pdf"  target="_blank"
-                    class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Certification from the Dean/Adviser</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/satellite campus- compliance checklist/02F3-4 dean and advise certification_2.pdf"  target="_blank"
-                    class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Parental Consent Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/satellite campus- compliance checklist/02F5 parental consent form_001 (1).pdf"  target="_blank"
-                    class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">List of Participants</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/satellite campus- compliance checklist/02F6 List of Participants_2.pdf"  target="_blank"
-                    class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Checklist of Requirements for Extramural Activities of Student Organizations (Satellite Campuses)</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/satellite campus- compliance checklist/BulSU-OP-OSD-01F5.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-
-            </div>
+            <!-- Within University -->
             <div class="tab-pane fade" id="c" role="tabpanel" aria-labelledby="c-tab">
-
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Activity Proposal Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/WITHIN UNIVERSITY/02F1 activity proposal form (2).pdf"  target="_blank" class="btn btn-primary">Download</a>
+              <div class="row">
+                <div class="card-deck col-sm"  *ngFor="let wu of wuforms">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ wu.form_thumb }}" alt="PDF Thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ wu.form_name }}</h5>
+                    </div> 
+                    <div class="card-footer"><a href="{{ wu.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Adviser/Faculty Companion Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/WITHIN UNIVERSITY/02F2  adviser companion form_001 (2).pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Parental Consent Form</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/WITHIN UNIVERSITY/02F5 parental consent form.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">List of Participants</h5>
-                  <p class="card-text">Description...</p>
-                  <a href="../assets/Forms/Templates-Compliance Checklist/WITHIN UNIVERSITY/02F6 List of Participants_3.pdf"  target="_blank" class="btn btn-primary">Download</a>
-                </div>
-              </div>
-
-
-            </div>
+            </div><!-- Within University -->
           </div>
-
-        </div>
-
+        </div><!-- Compliance Checklist -->
       </div>
     </div>
     <div class="col-sm-4">
@@ -416,12 +235,12 @@
         <h2>Categories</h2>
       </span>
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">EB Application Form</a>
-        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">For Renewal</a>
+        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true" (click)="getallEBForms()">EB Application Form</a>
+        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false" (click)="getallRenewalForms()">For Renewal</a>
         
-        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">RER</a>
-        <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false">Sample Letters</a>
-        <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab" aria-controls="v-pills-5" aria-selected="false">Compliance Checklist</a>
+        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false" (click)="getallRERForms()">RER</a>
+        <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false" (click)="getallSampleLettersForms()">Sample Letters</a>
+        <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab" aria-controls="v-pills-5" aria-selected="false" (click)="getallOUForms()">Compliance Checklist</a>
       </div>
     </div>
   </div>
