@@ -8,7 +8,7 @@ module.exports = (router) => {
             res.json({ success: false, message: err });
           } else {
             if (!osoprimers) {
-              res.json({ success: false, message: 'No primer found!' });
+              res.json({ success: false, message: 'No primer found' });
             } else {
               res.json ({ success: true, osoprimers: osoprimers });
             }
