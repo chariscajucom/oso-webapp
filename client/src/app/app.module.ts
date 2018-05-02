@@ -31,6 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { StudOrgsService } from './myservices/studorgs.service';
+import { StudLeaderComponent } from './studleader/studleader.component';
+import { SidebarLeaderModule } from './studleader/sidebar/sidebar.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { StudOrgsService } from './myservices/studorgs.service';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    PageErrorComponent
+    PageErrorComponent,
+    StudLeaderComponent
   ],
   imports: [
     FroalaEditorModule.forRoot(), 
@@ -53,6 +56,7 @@ import { StudOrgsService } from './myservices/studorgs.service';
     HttpClientModule,
     NavbarModule,
     SidebarModule,
+    SidebarLeaderModule,
     DashNavbarModule,
     FooterModule
     // BsModalModule 

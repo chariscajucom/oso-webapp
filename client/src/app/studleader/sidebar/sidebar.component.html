@@ -1,0 +1,61 @@
+<div class="logo">
+    <a href="/home" class="simple-text logo-mini">
+        <div class="img-raise">
+            <img src="../assets/osomedia/logo/osologo.png"/>
+        </div>
+    </a>
+    <a href="/home" class="simple-text logo-normal">
+        BulSU OSO
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div class="user">
+        <div class="photo">
+            <img src="../assets/img/default-avatar.png"/>
+        </div>
+        <div class="info">
+            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                <span>
+                    <h5>{{ username }}</h5>
+                    <b class="caret"></b>
+                </span>
+            </a>
+            <div class="collapse" id="collapseExample">
+                <ul class="nav">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span class="sidebar-normal">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span class="sidebar-normal">Edit Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span class="sidebar-normal">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-container">
+        <ul class="nav">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+                <a  [routerLink]="[menuItem.path]">
+                    <i class="now-ui-icons {{menuItem.icon}}"></i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+            <li>
+                <a (click)="onLogoutClick()">
+                    <i class="now-ui-icons media-1_button-power"></i>
+                    <p>Logout</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
