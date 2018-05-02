@@ -103,5 +103,8 @@ export class StudOrgsService {
     getAllCSSPOrgs(){
         return this.http.get(this.domain + 'studorgs/allCSSPOrgs').map(res=>res.json());
     }
+    getAllOrgs(){
+        return this.http.get(this.domain + 'studorgs/allOrgs').map(res=>res.json());
+    }
 
 }

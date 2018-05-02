@@ -64,7 +64,7 @@ options;
 
   getProfile(){
     this.createAuthenticationHeaders();
-    return this.http.get(this.domain + 'authentication/sidebar', this.options).map(res => res.json());
+    return this.http.get(this.domain + 'authentication/currentUser', this.options).map(res => res.json());
   }
 
   // check if the user is logged in or not, if token is expired, token is deleted from localstorage

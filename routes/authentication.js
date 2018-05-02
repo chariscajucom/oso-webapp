@@ -120,7 +120,7 @@ module.exports = (router) => {
                 res.json({ success: false, message: 'INVALID Password!'})
               } else{
                 const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); //created token
-                res.json({ success: true, message: 'Success!', token: token, user:  { username: user.username }});
+                res.json({ success: true, message: 'Success!', token: token, user:  { username: user.username, role: user.role }});
               }
             }
           }
@@ -150,7 +150,7 @@ module.exports = (router) => {
    });
    
    // route to get user's data
-   router.get('/sidebar', (req, res) => {
+   router.get('/currentUser', (req, res) => {
        // Search for user in database
        User.findOne({ _id: req.decoded.userId }).select('username').exec((err, user) => {
          // Check if error connecting

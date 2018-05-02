@@ -45,19 +45,40 @@
           <span class="sr-only">Next</span>
         </a>
 </div>
-<div class="section section-about-us">
+<div class="section mb-0 pb-0 section-about-us">
             <div class="container">
+                    <div class="section-story-overview mt-0 pt-0">
+                            <h2 class="title text-center" data-aos="flip-left">What we are all about</h2>
+                            <a routerLink="/about" class="btn btn-primary btn-round btn-lg col-12 mb-5" target="_blank" data-aos="flip-right">Go to About</a>
                 <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title" data-aos="flip-left">What are we all about?</h2>
-                        <h5 class="description" data-aos="flip-left">A social unit of people that is structured and managed to meet a need or to pursue collective goals. All organizations have a management structure that determines relationships between the different activities and the members, and subdivides and assigns roles, responsibilities, and authority to carry out different tasks.
-                        <br>
-                        Organizations are open systems--they affect and are affected by their environment.
-                        </h5>
+                    <div class="col-md-6">
+                        <div class="image-container image-left" style="background-image: url('../assets/osomedia/osomedia/suc317.jpg')" data-aos="flip-right">
+                            <!-- First image on the left side -->
+                            <p class="blockquote blockquote-primary">"If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals."
+                                <br>
+                                <br>
+                                <small>-Sirius Black, Harry Potter and the Goblet of Fire</small>
+                            </p>
+                        </div>
+                        <!-- Second image on the left side of the article -->
+                        <div class="image-container" style="background-image: url('../assets/osomedia/new/grp.jpg'); background-size: cover;" data-aos="flip-down"></div>
+                    </div>
+                    <div class="col-md-5">
+                        <!-- First image on the right side, above the article -->
+                        <div class="image-container image-right" style="background-image: url('../assets/osomedia/osomedia/poster.jpg')" data-aos="flip-up"></div>
+                        <h3>Great moments are born from great opportunity</h3>
+                        <p>To officially open the celebration, the event started with the entrance of colors led by the BulSU ROTC Unit, followed by the singing of the National Anthem and BulSU Hymn headed by the very talended people from BulSU Saring Himig. The program was graced by the administration officials headed by BulSU President, Dr. Cecilia Gascon, vice president, deans and directors, and students.
+                        </p>
+                        <p>
+                            President Gascon thanked all the officials, faculty and students for the love and support that they have poured out for BulSU. She added that it is through their hard work and fierce loyalty to the institution that our University has come this far, and it is through these same loyalty and dedications that the university will soar to superior heights.
+                        </p>
+                        <p>Dr. Jaime P. Pulumbarit, the Vice President for Administration, Finance and Resource Generation, took charge in the introduction of the guest speaker, Gov. Wilhelmino M. Sy-Alvarado. The Governor stated that our university should continue to produce more competitive graduates that would help in the development of our province, especially the country. He articulated that he admires teachers and officials in this institution because of their unending dedication.
+                        </p>
                     </div>
                 </div>
+                </div>
                 <div class="separator separator-primary"></div>
-                <div class="section-story-overview ">
+                <div class="section-story-overview mb-0 pt-0">
                         <h2 class="title text-center" data-aos="flip-left">See what the fuss is all about</h2>
                         <h5 class="description text-center" data-aos="flip-left">This is the News, BulSUans!! Click see more and Be Updated BulSuans!!</h5>
                         <a routerLink="/frontnews" class="btn btn-primary btn-simple btn-round btn-lg col-12 mb-5" target="_blank">See more</a>
@@ -75,7 +96,7 @@
                                         <!-- news footer start -->
                                         <div class="card-footer text-primary">
                                           <!-- news author -->
-                                          <strong>Posted by: </strong>{{ frontnews.createdBy }}&nbsp;&nbsp;
+                                          <!-- <strong>Posted by: </strong>{{ frontnews.createdBy }}&nbsp;&nbsp; -->
                                           <!-- news created -->
                                           <strong>Date: </strong>{{ frontnews.createdAt | date: 'MMM dd, yyyy' }}
                                           <br>
@@ -83,18 +104,6 @@
                                         <!-- footer end -->
                                         <!-- footer end -->
                                 
-                                      <ul class="list-group">
-                                          <br>
-                                         <div>
-                                          <li *ngFor="let comment of frontnews.comments" class="list-group-item  bg-warning">
-                                            <strong>{{ comment.commentator }}</strong>
-                                            {{ comment.comment }}
-                                          </li>
-                                         </div>
-                                         <a routerLink="/admin/news">&nbsp;Login to make a comment...</a>
-                                
-                                      </ul>
-                            
                         </div> 
                         </div>
                         </div>
@@ -102,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <div class="section section-team text-center">
+        <div class="section section-team text-center mt-0 pt-0">
             <div class="container">
                 <h2 class="title" data-aos="flip-down">Here is our team</h2>
                 <div class="team">
@@ -118,7 +127,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-player">
-                                 <img src="../assets/osomedia/admins/Roy.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                <img src="../assets/osomedia/admins/roy.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                 <h4 class="title">Mr. Joseph Roy F. Celestino</h4>
                                 <p class="category text-primary">Head of Student Organizations</p>
                                 <p class="description">Office manager responsibilities include scheduling meetings and appointments, making office supplies arrangements, greeting visitors and providing general administrative support to our employees. </p>

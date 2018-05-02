@@ -59,9 +59,13 @@ export class LoginComponent implements OnInit {
 					this.messageClass = 'alert alert-success';
 					this.message = data.message;
           //expecting the token and the user
-          this.authService.storeUserData(data.token, data.user);
+					this.authService.storeUserData(data.token, data.user);
 					setTimeout(() => {
-						this.router.navigate(['/admin/dashboard']);
+						if(data.user.role == "leader"){
+							this.router.navigate(['/leader/dashboard']);
+						}else{
+							this.router.navigate(['/admin/dashboard']);
+						}
 					}, 2000)
 
 			}
