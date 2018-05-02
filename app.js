@@ -18,6 +18,7 @@ const pdfforms = require('./routes/pdfforms')(router);
 const emailwebsite = require('./routes/emailwebsite')(router);
 const authentication = require('./routes/authentication')(router);
 const news = require('./routes/news')(router);
+const activity = require('./routes/activity')(router);
 
 const app = express();
 
@@ -57,9 +58,10 @@ app.use('/pdfforms', pdfforms);
 app.use('/emailwebsite', emailwebsite);
 app.use('/authentication', authentication);
 app.use('/news', news);
+app.use('/activity', activity);
 
 app.get('*', (req, res) => {  // '*' -> only need one route
-  res.sendFile(path.join(__dirname + '/public/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));	
 });
 
 app.listen(8080, () => {
