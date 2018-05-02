@@ -51,6 +51,7 @@ app.use(function (req, res, next) {
 app.use('/osoprimer', osoprimer);
 app.use('/studorgs', studorgs);
 app.use('/osoforms', osoforms);
+app.use('/osoprimer' , osoprimer);
 app.use('/studvalidation', studvalidation);
 app.use('/frontnews', frontnews);
 app.use('/pdfforms', pdfforms);

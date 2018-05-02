@@ -9,7 +9,7 @@ import { StudOrgsService } from '../../myservices/studorgs.service';
 export class StudorgsComponent implements OnInit {
 
   hagonoyStudOrgs: any;
-  menesesStudOrgs: any;
+  menesesStudOrgs: any; 
   sarmientoStudOrgs: any;
   cafaStudOrgs: any;
   calStudOrgs: any;
