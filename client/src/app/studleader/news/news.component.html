@@ -1,0 +1,89 @@
+<div class="container">
+  <h1>News Feed</h1>
+
+  <div class="row show-hide-message" *ngIf="message && newPost">
+    <div [ngClass]="messageClass">
+      {{ message }}
+    </div>
+  </div>
+
+  <button [disabled]="loadingNews" type="button" name="button" class="btn btn-default" *ngIf="!newPost" (click)="reloadNews()"><i class="now-ui-icons loader_refresh"></i>&nbsp;&nbsp;Reload</button>
+
+  <!-- NEWS -->
+  <div>
+    <div class="card bg-light border-dark" *ngFor="let news of newsArticles">
+    <div class="card-body">
+      <!-- news title -->
+      <h5 class="card-title">{{ news.title }}</h5>
+      <!-- news body -->
+      <p class="card-text" [froalaView]="news.body" >{{ news.body }}</p>
+    </div>
+    <!-- news footer start -->
+    <div class="card-footer text-muted">
+      <!-- news author -->
+      <strong>Posted by: </strong>{{ news.createdBy }}&nbsp;&nbsp;
+      <!-- news created -->
+      <strong>Date: </strong>{{ news.createdAt | date: 'MMM dd, yyyy' }}
+      <!-- Like and Dislike Button -->
+      <div *ngIf="username === news.createdBy">
+        <p><strong>Likes: </strong>{{ news.likes }}&nbsp;&nbsp;
+        <strong>Dislikes: </strong>{{ news.dislikes }}</p>
+      </div>
+
+      <!-- Like and Dislike Button -->
+      <div class="btn-group" role="group">
+          <!-- Likes Dropdown -->
+        <div class="dropdown">
+          <button [disabled]="news.likedBy.indexOf(username) > -1" class="dropbtn" *ngIf="username !== news.createdBy" (click)="likeNews(news._id)" type="button">
+            Likes: {{ news.likes }}
+          </button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" *ngFor="let liker of news.likedBy">{{ liker }}</a>
+          </div>
+        </div>
+        <!-- Dislikes Dropdown -->
+        <div class="dropdown">
+          <button [disabled]="news.dislikedBy.indexOf(username) > -1" class="dropbtn" *ngIf="username !== news.createdBy" (click)="dislikeNews(news._id)" type="button">
+            Dislikes: {{ news.dislikes }}
+          </button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" *ngFor="let disliker of news.dislikedBy">{{ disliker }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer end -->
+    <ul class="list-group">
+      <li class="list-group-item">
+        <button class="btn btn-danger" name="button" type="button" (click)="draftComment(news._id)" [disabled]="newComment.indexOf(news._id) > -1">Post Comment</button>
+        <br>
+       <div *ngIf="newComment.indexOf(news._id) > -1">
+        <form [formGroup]="commentForm">
+          <textarea name="comment" cols="30" rows="10" class="form-control" formControlName="comment"></textarea>
+          <div [ngClass]="{'has-success': !commentForm.controls.comment.errors && commentForm.controls.comment.dirty, 'has-error': commentForm.controls.comment.dirty && commentForm.controls.comment.errors}">
+          </div>
+          <button [disabled]="!commentForm.valid || processing" type="submit" name="button" class="btn btn-sm btn-info" (click)="postComment(news._id)">Submit Post</button>
+          <button [disabled]="processing" type="button" name="button" class="btn btn-sm btn-danger" (click)="cancelSubmission(news._id)">Cancel</button>
+        </form>
+       </div>
+       <li *ngIf="enabledComments.indexOf(news._id) === -1 && news.comments.length > 0" class="list-group-item">
+         <span (click)="expand(news._id)">Show Comments&nbsp;&nbsp;
+           <div class="now-ui-icons ui-1_simple-add"></div>
+         </span>
+       </li>
+       <li *ngIf="enabledComments.indexOf(news._id)> -1" class="list-group-item">
+        <span (click)="collapse(news._id)">Hide Comments&nbsp;&nbsp;
+          <div class="now-ui-icons ui-1_simple-add">       </div>
+        </span>
+       </li>
+       <div *ngIf="enabledComments.indexOf(news._id)> -1">
+        <li *ngFor="let comment of news.comments" class="list-group-item">
+          <strong>{{ comment.commentator }}</strong>
+          {{ comment.comment }}
+        </li>
+       </div>
+      
+    </ul>
+  </div><!-- card -->
+  </div> <!-- ngif NewPost -->
+</div> <!-- container -->
