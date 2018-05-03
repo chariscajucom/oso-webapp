@@ -1,0 +1,146 @@
+<div class="container" >
+  <div class="row pt-5">
+    <div class="col-sm-8">
+      <div class="tab-content" id="v-pills-tabContent">
+        <!-- EB Application Form -->
+        <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+            <div class="row">
+              <div class="card-deck col-sm"  *ngFor="let eb of ebforms">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="{{ eb.form_thumb }}" alt="PDF Thumbnail">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ eb.form_name }}</h5>
+                  </div>  
+                  <div class="card-footer"><a href="{{ eb.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                  </div>
+              </div>
+              </div>
+            </div>
+        </div><!-- EB Application Form -->
+        <!-- For Renewal -->
+        <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+          <div class="row">
+            <div class="card-deck col-sm"  *ngFor="let renewal of renewalforms">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ renewal.form_thumb }}" alt="PDF Thumbnail">
+                <div class="card-body">
+                  <h5 class="card-title">{{ renewal.form_name }}</h5>
+                </div> 
+                <div class="card-footer"><a href="{{ renewal.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div><!-- For Renewal -->
+        <!-- RER -->
+        <div class="tab-pane fade" id="v-pills-3" role="tabpanel"  target="_blank" aria-labelledby="v-pills-3-tab">
+          <div class="row">
+            <div class="card-deck col-sm"  *ngFor="let rer of rerforms">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ rer.form_thumb }}" alt="PDF Thumbnail">
+                <div class="card-body">
+                  <h5 class="card-title">{{ rer.form_name }}</h5>
+                </div> 
+                <div class="card-footer"><a href="{{ rer.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div> <!-- RER -->
+
+        <!-- Sample Letters -->
+        <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+          <div class="row">
+            <div class="card-deck col-sm"  *ngFor="let samp of sampforms">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ samp.form_thumb }}" alt="PDF Thumbnail">
+                <div class="card-body">
+                  <h5 class="card-title">{{ samp.form_name }}</h5>
+                </div> 
+                <div class="card-footer"><a href="{{ samp.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div><!-- Sample Letters -->
+
+        <!-- Compliance Checklist -->
+        <div class="tab-pane fade" id="v-pills-5" role="tabpanel"  target="_blank" aria-labelledby="v-pills-5-tab">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="a-tab" data-toggle="tab" href="#a" role="tab" aria-controls="a" aria-selected="true" (click)="getallOUForms()">Outside University</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="b-tab" data-toggle="tab" href="#b" role="tab" aria-controls="b" aria-selected="false" (click)="getallSCForms()">Satelite Campus-Compliance Checklist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="c-tab" data-toggle="tab" href="#c" role="tab" aria-controls="c" aria-selected="false" (click)="getallWUForms()">Within University</a>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="myTabContent">
+            <!-- Outside University -->
+            <div class="tab-pane fade show active" id="a" role="tabpanel" aria-labelledby="a-tab">
+              <div class="row">
+                <div class="card-deck col-sm"  *ngFor="let ou of ouforms">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ ou.form_thumb }}" alt="PDF Thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ ou.form_name }}</h5>
+                    </div> 
+                    <div class="card-footer"><a href="{{ ou.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>  <!-- Outside University -->
+            <!-- Satellite Campus-Compliance Checklist -->
+            <div class="tab-pane fade" id="b" role="tabpanel" aria-labelledby="b-tab">
+              <div class="row">
+                <div class="card-deck col-sm"  *ngFor="let sc of scforms">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ sc.form_thumb }}" alt="PDF Thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ sc.form_name }}</h5>
+                    </div> 
+                    <div class="card-footer"><a href="{{ sc.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div><!-- Satellite Campus-Compliance Checklist -->
+
+            <!-- Within University -->
+            <div class="tab-pane fade" id="c" role="tabpanel" aria-labelledby="c-tab">
+              <div class="row">
+                <div class="card-deck col-sm"  *ngFor="let wu of wuforms">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ wu.form_thumb }}" alt="PDF Thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ wu.form_name }}</h5>
+                    </div> 
+                    <div class="card-footer"><a href="{{ wu.form_link }}"  target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div><!-- Within University -->
+          </div>
+        </div><!-- Compliance Checklist -->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <span class="border-bottom">
+        <h2>Categories</h2>
+      </span>
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true" (click)="getallEBForms()">EB Application Form</a>
+        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false" (click)="getallRenewalForms()">For Renewal</a>
+        
+        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false" (click)="getallRERForms()">RER</a>
+        <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false" (click)="getallSampleLettersForms()">Sample Letters</a>
+        <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab" aria-controls="v-pills-5" aria-selected="false" (click)="getallOUForms()">Compliance Checklist</a>
+      </div>
+    </div>
+  </div>
+</div>x`

@@ -38,7 +38,7 @@ export const AppRoutes: Routes = [
         { path: 'dashboard', loadChildren: './studleader/dashboard/dashboard.module#DashboardModule'},
         { path: 'news', loadChildren: './studleader/news/news.module#NewsModule'},
         { path: 'activities', loadChildren: './studleader/activities/activities.module#ActivitiesModule'},
-        // { path: 'pdf-forms', loadChildren: './studleader/pdf-forms/pdforms.module#PDFModule'},
+        { path: 'pdfforms', loadChildren: './studleader/pdfforms/pdfforms.module#PdfFormModule'},
       ]
     },
     {
