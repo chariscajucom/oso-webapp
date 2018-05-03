@@ -33,6 +33,8 @@ import { PageErrorComponent } from './page-error/page-error.component';
 import { StudOrgsService } from './myservices/studorgs.service';
 import { StudLeaderComponent } from './studleader/studleader.component';
 import { SidebarLeaderModule } from './studleader/sidebar/sidebar.module';
+import { PdfformsComponent } from './studleader/pdfforms/pdfforms.component';
+import { StudLeaderFormsService } from './myservices/studleaderForms.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,7 @@ import { SidebarLeaderModule } from './studleader/sidebar/sidebar.module';
     // BsModalModule
 
   ],
-  providers: [ AuthService, StudentsService, AuthGuard, NewsService, StudOrgsService ],
+  providers: [ AuthService, StudentsService, AuthGuard, NewsService, StudOrgsService, StudLeaderFormsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
