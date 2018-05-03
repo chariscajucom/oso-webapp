@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class PdfFormsService{
-    domain = "http://localhost:8080/";
+    domain = "";
     constructor(
         private http: HttpClient
         ) {}

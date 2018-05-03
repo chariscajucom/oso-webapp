@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './organization.component.html'
+  templateUrl: './accounts.component.html'
 })
-export class OrganizationsComponent implements OnInit {
+export class AccountsComponent implements OnInit {
 
   ngOnInit() {
   }

@@ -11,7 +11,6 @@ import { OSOFormsService } from '../../myservices/osoForms.service';
 
 })
 export class ServicesComponent implements OnInit {
-  
   wuforms: any;
   scforms: any;
   ouforms: any;
@@ -76,8 +75,6 @@ export class ServicesComponent implements OnInit {
   }
 
   onFormSubmit(){
-    // console.log(this.form.get('studnum').value);
-    // console.log(this.form.get('studname').value);
     this.processing = true;
     this.disableFormvalidateStudentForm();
     
@@ -93,7 +90,6 @@ export class ServicesComponent implements OnInit {
      } else{
       this.messageClass = 'alert alert-success';
       this.message = data.message;
-      // this.studService.storeStudentsData(data.token, data.student);
       this.validStudent = false;
       this.validated = true;
      }

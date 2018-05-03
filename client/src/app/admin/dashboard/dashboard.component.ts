@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StudOrgsService } from '../../myservices/studorgs.service';
+import { NewsService } from '../../myservices/news.service';
 
 declare var swal: any;
 declare var $: any;
@@ -10,7 +12,25 @@ declare var $: any;
 })
 
 export class DashboardComponent implements OnInit{
+	studOrgs: any;
+	newsArticles: any;
+	constructor(private studorgsService: StudOrgsService,
+				private newsService: NewsService){}
+
+	getAllOrgs(){
+		this.studorgsService.getAllOrgs().subscribe(data => {
+		  this.studOrgs = data.studorgs.length;
+		});
+	}
+	getAllNews(){  
+		this.newsService.getAllNews().subscribe(data =>{
+		  this.newsArticles = data.news.length;
+		});
+	  }
+
 	ngOnInit(){
+		this.getAllOrgs();
+		this.getAllNews();
 		var $calendar = $('#fullCalendar');
 
 		var today = new Date();
@@ -82,51 +102,6 @@ export class DashboardComponent implements OnInit{
 
 	    // color classes: [ event-blue | event-azure | event-green | event-orange | event-red ]
 	    events: [
-	    {
-	    	title: 'All Day Event',
-	    	start: new Date(y, m, 1),
-	    	className: 'event-default'
-	    },
-	    {
-	    	title: 'Meeting',
-	    	start: new Date(y, m, d-1, 10, 30),
-	    	allDay: false,
-	    	className: 'event-green'
-	    },
-	    {
-	    	title: 'Lunch',
-	    	start: new Date(y, m, d+7, 12, 0),
-	    	end: new Date(y, m, d+7, 14, 0),
-	    	allDay: false,
-	    	className: 'event-red'
-	    },
-	    {
-	    	title: 'Nud-pro Launch',
-	    	start: new Date(y, m, d-2, 12, 0),
-	    	allDay: true,
-	    	className: 'event-azure'
-	    },
-	    {
-	    	title: 'Birthday Party',
-	    	start: new Date(y, m, d+1, 19, 0),
-	    	end: new Date(y, m, d+1, 22, 30),
-	    	allDay: false,
-	    	className: 'event-azure'
-	    },
-	    {
-	    	title: 'Click for Creative Tim',
-	    	start: new Date(y, m, 21),
-	    	end: new Date(y, m, 22),
-	    	url: 'http://www.creative-tim.com/',
-	    	className: 'event-orange'
-	    },
-	    {
-	    	title: 'Click for Google',
-	    	start: new Date(y, m, 21),
-	    	end: new Date(y, m, 22),
-	    	url: 'http://www.creative-tim.com/',
-	    	className: 'event-orange'
-	    }
 	    ]
 	});
 	}

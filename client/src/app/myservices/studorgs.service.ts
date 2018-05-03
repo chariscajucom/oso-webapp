@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class StudOrgsService {
-    domain = "http://localhost:8080/";
+    domain = "";
     constructor(
         private http: Http
         ) {}

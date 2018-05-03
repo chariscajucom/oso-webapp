@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { AuthService } from '../myservices/auth.service';
 import { Router } from '@angular/router';
 
+declare var swal: any;
 @Component({
   selector: 'app-login',
 	templateUrl: './login.component.html',
@@ -59,7 +60,17 @@ export class LoginComponent implements OnInit {
 					this.messageClass = 'alert alert-success';
 					this.message = data.message;
           //expecting the token and the user
-					this.authService.storeUserData(data.token, data.user);
+					this.authService.storeUserData(data.token, data.user.username);
+						swal({
+							title: 'Successfully Login!',
+							text: '',
+							type: 'success',
+							timer: 1500,
+							onOpen: () => {
+								swal.showLoading()
+							}
+						})
+
 					setTimeout(() => {
 						if(data.user.role == "leader"){
 							this.router.navigate(['/leader/dashboard']);

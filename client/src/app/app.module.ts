@@ -59,7 +59,7 @@ import { SidebarLeaderModule } from './studleader/sidebar/sidebar.module';
     SidebarLeaderModule,
     DashNavbarModule,
     FooterModule
-    // BsModalModule 
+    // BsModalModule
 
   ],
   providers: [ AuthService, StudentsService, AuthGuard, NewsService, StudOrgsService ],

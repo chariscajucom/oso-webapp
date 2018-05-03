@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class StudentsService {
-    domain = "http://localhost:8080/";
+    domain = "";
     constructor(
         private http: Http
         ) {}

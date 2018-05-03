@@ -11,7 +11,11 @@ module.exports = (router) => {
           } else {
               const activity = new Activity({
                 title: req.body.title,
-                body: req.body.body
+                venue: req.body.venue,
+                starttime: req.body.starttime,
+                endtime: req.body.endtime,
+                noofstudents: req.body.noofstudents,
+                objective: req.body.objective
               });
               activity.save((err) => {
                 if (err) {

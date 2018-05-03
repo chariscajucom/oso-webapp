@@ -26,7 +26,7 @@ export const AppRoutes: Routes = [
         { path: 'announcement', loadChildren: './admin/announcement/announcement.module#AnnouncementModule'},
         { path: 'activities', loadChildren: './admin/activities/activities.module#ActivitiesModule'},
         { path: 'pdf-forms', loadChildren: './admin/pdf-forms/pdforms.module#PDFModule'},
-        { path: 'organizations', loadChildren: './admin/organizations/organization.module#OrganizationModule'},
+        { path: 'accounts', loadChildren: './admin/accounts/accounts.module#AccountsModule'},
       ]
     },
     {

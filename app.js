@@ -24,6 +24,8 @@ const app = express();
 
 const cors = require('cors');
 
+const port = process.env.PORT || 8080;
+
 //Database connection
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
@@ -64,6 +66,6 @@ app.get('*', (req, res) => {  // '*' -> only need one route
   res.sendFile(path.join(__dirname + '/public/index.html'));	
 });
 
-app.listen(8080, () => {
-	console.log('Listening on port 8080');
+app.listen(port, () => {
+	console.log('Listening on port ' + port);
 });

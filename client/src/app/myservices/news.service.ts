@@ -6,7 +6,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class NewsService {
   options;
-  domain = this.authService.domain;
+  domain = "";
 
   constructor(
     private authService: AuthService,

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class contactusService{
     
-domain = "http://localhost:8080/";
+domain = "";
 constructor(
     private http:Http
 ){}
